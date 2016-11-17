@@ -444,6 +444,253 @@ integráveis, então temos:}\\
     \int_{a}^{b}f(x)g'(x) dx = [f(x)g(x)]_{a}^{b} - \int_{a}^{b}f'(x)g(x) dx
 \end{equation}
 
+Outro resultado familiar é o fato que se as funções $f_1(x), f_2(x), ..., f_n(x)$
+são integráveis no intervalo [a,b], então a soma deles também é integrável.\\
+\begin{equation}
+\label{43}
+    \int_{a}^{b}[\sum\limits_{k=1}^{n}f(x)]dx = \sum\limits_{k=1}^{n}\int_{a}^{b}f(x)dx
+\end{equation}
 
+Agora considere uma série infinita de funções:\\
+\begin{equation}
+\label{44}
+    f_1(x), f_2(x), f_3(x), ... = \sum\limits_{k=1}^{\infty}f_k(x)
+\end{equation}
+\\
+Uma série desse tipo é dita convergente se para um dado valor de x,
+suas somas parciais:\\
+\begin{equation}
+    s_n(x) = \sum\limits_{k=1}^{n}f_k(x)\text{, para n = 1, 2, 3, ...}
+\end{equation}
+\\
+tiverem um limite finito:\\
+\begin{equation}
+    s(x) = \lim_{x\to\infty} s_n(x)
+\end{equation}
+\\
+$s(x)$ é dita ser a soma da série e, obviamente, é uma função de $x$.\\
+\\
+Se a série converge para todo x no intervalo [a,b], então sua soma $s(x)$
+é definida em todo o intervalo [a,b].\\
+\\
+Agora perguntamos se a formula \ref{43} pode ser extendida para o caso de 
+uma série convergente de funções integráveis no intervalo [a,b], i.e.,
+a fórmula abaixo é válida?\\
+\begin{equation}
+\label{45}
+    \int_{a}^{b}[\sum\limits_{k=1}^{\infty}f(x)]dx = \int_{a}^{b}s(x) dx = \sum\limits_{k=1}^{\infty}\int_{a}^{b}f_k(x) dx
+\end{equation}
+\\
+Em outras palavras, a série pode ser integrada termo a termo?\\
+\\
+\ref{45} nem sempre é válida, simplesmente pela série de funções integráveis,
+ou até mesmo contínua pode, se quer, ter uma soma integrável. Um problema parecido 
+surge com relação a possibilidade de diferenciação termo a termo da série.
+E agora vamos descartar uma importante classe de séries de função para o qual 
+essas operações podem ser aplicadas.\\
+\\
+A série \ref{44} é dita ser uniformemente convergente em um intervalo [a,b] se
+para um número positivo qualquer $\varepsilon$, existe um número $N$ tal que a
+desigualdade abaixo seja verdadeira para todo $n \geq N$ e para todo x no 
+intervalo [a,b].\\
+\begin{equation}
+    |s(x) - s_n(x)| \leq \varepsilon
+\end{equation}
+\\
+Portanto, convergência uniforme significa que para um $n$ suficientemente 
+grande e para todo $x$ no intervalo, o gráfico da soma de séries $s(x)$ e o 
+gráfico da soma parcial $s_n(x)$, estão $\varepsilon$ distantes uma da outra,
+desse jeito, ambas as curvas estarão \textit{uniformemente perto} uma da outra.\\
+\\
+\textit{Importante Notar:}
+Não é qualquer série que converge no intervalo [a,b] e, também, convere uniformemente
+no mesmo intervalo.\\
+\\
+\textbf{gap} 
+\\
+O teste a seguir é um teste muito útil e simples para a convergencia uniforme
+de uma série de funções (Weierstrass M-Test):\\
+\textit{
+    Se a série infinita de números \\
+    \begin{equation}
+        M_1 + M_2 + M_3 + ... + M_k + ...
+    \end{equation}
+    \\
+    \\
+    convergir e, se para algum x no intervalo [a,b], nós tivermos $|f_k(x)| \leq M_k$
+    de um certo k em diante, então a série \ref{43} converge uniformemente ( e 
+    absolutamente) no intervalo [a,b].
+} 
+\\
+\textbf{gap}\\
+\\
+Os seguintes teoremas são válidos:
 
+\newtheorem{teo1}{Teorema}
+\begin{teo1}
+    Se os termos da série \ref{44} são contínuos em [a,b] e se a
+    série converge uniformemente em [a,b], então:\\
+    a) A soma da série é contínua\\
+    b) A soma pode ser integrada termo a termo
+\end{teo1}
+
+\newtheorem{teo2}{Teorema}
+\begin{teo2}
+    Se a série \ref{44} converge, e se os termos da série são diferenciáveis
+    e se a série:\\
+    \begin{equation}
+        f_1^{'}(x) + f_2^{'}(x) + f_3^{'}(x) + ... = \sum\limits_{k=1}^{\infty}f_k^{'}(x)
+    \end{equation}
+    é uniformemente convergente em [a,b], então\\
+    \begin{equation}
+        (\sum\limits_{k=1}^{\infty} f(x))^{'} = s^{'}(x) = \sum\limits_{k=1}^{\infty}f_k^{'}(x)
+    \end{equation}
+    i.e., a série \ref{44} pode ser diferenciada termo a termo.
+\end{teo2}
+
+\section{Revisão de trigonometria}
+Pelo sistema básico trigonométrico nós queremos dizer que o sistema de funções abaixo:\\
+\begin{equation}
+\label{51}
+    1, \cos{x}, \sin{x}, \cos{2x}, \sin{2x}, ... 
+\end{equation}
+\\
+Todos essas funções tem um período comum de $2\pi$.
+\\
+Agora, vamos provar algumas fórmulas auxiliares.\\
+Para um inteiro $n \neq 0$, temos\\
+\\
+\begin{equation}
+\label{52}
+    \begin{split}
+        \int_{-\pi}^{\pi}\cos{nx}dx & = [\dfrac{\sin{nx}}{n}]_{-\pi}^{\pi} = 0\\
+        \int_{-\pi}^{\pi}\sin{nx}dx & = [\dfrac{-\cos{nx}}{n}]_{-\pi}^{\pi} = 0
+    \end{split}
+\end{equation}
+\\
+e\\
+\\
+\begin{equation}
+\label{53}
+    \begin{split}
+        \int_{-\pi}^{\pi}\cos^2{nx}dx & = \int_{-\pi}^{\pi}\dfrac{1 + \cos{2nx}}{2} dx = \pi\\
+        \int_{-\pi}^{\pi}\sin^2{nx}dx & = \int_{-\pi}^{\pi}\dfrac{1 - \cos{2nx}}{2} dx = \pi
+    \end{split}
+\end{equation}
+\\ 
+Usando fórmulas trigonométricas conhecidas, temos\\
+\\
+\begin{equation}
+\label{54}
+    \begin{split}
+        \cos{\alpha}\cos{\beta} dx & = \dfrac{1}{2}[\cos{(\alpha + \beta)} + \cos{(\alpha - \beta)}]\\
+        \sin{\alpha}\sin{\beta}dx & = \dfrac{1}{2}[\cos{(\alpha - \beta)} - \cos{(\alpha + \beta)}]
+    \end{split}
+\end{equation}
+\\
+para qualquer n, m.\\
+\\
+Finalmente, usando a fórmula \\
+\begin{equation}
+        \sin{\alpha}\cos{\beta} dx = \dfrac{1}{2}[\sin{(\alpha + \beta)} + \sin{(\alpha - \beta)}]    
+\end{equation}
+\\
+tiramos o seguinte:\\
+\\
+\begin{equation}
+\label{55}
+    \int_{-\pi}^{\pi}\sin{nx}\cos{mx}dx = 0
+\end{equation}
+\\
+para qualquer n, m.\\
+\\
+As fórmulas \ref{52} e \ref{54}, mostram que a integral sobre um intervalo $[-\pi, \pi]$
+do produto de qualquer duas funções diferentes do sistema \ref{51} desaparece.\\
+\\
+Vamos concordar em chamar duas funções $f(x)$ e $g(x)$ ortogonais no intervalo
+[a,b] se\\
+\begin{equation}
+    \int_{a}^{b} f(x)g(x)\hspace{4pt}dx = 0
+\end{equation}
+\\
+Com essa definição, podemos dizer que os pares de funções em \ref{51} são
+ortogonais no intervalo $[-\pi, \pi]$.\\
+\\
+Como já foi dito na Sec. 1, a integral de uma função periódica é a mesma em
+qualquer outro intervalo de mesmo tamanho que o período, no caso $2\pi$.\\
+\\
+\section{Séries de Fourier para funções de período $2\pi$}
+Suponha que a função $f(x)$ de período $2\pi$ tenha a seguinte expansão:\\
+\begin{equation}
+    \label{61}
+    f(x) = \dfrac{a_0}{2} + \sum\limits_{k=1}^{\infty}(a_k\cos{kx} + b_k\sin{kx})
+\end{equation}
+\\
+onde, para simplificar para próximas fórmulas, vamos denotar a constante da 
+expansão como sendo $\dfrac{a_0}{2}$.\\
+\\
+Agora, vamos resolver o problema para achar os valores de $a_0, a_k, b_k$, para
+k = 1, 2, 3, ..., por um conhecimento em $f(x)$.\\
+\\
+Para isso, vamos fazer a seguinte suposição:\\
+\\
+$\to$ A série \ref{61} e a série a seguir podem ser integradas termo a termo, ou seja
+a integral das somas é igual a soma das integrais.
+\\
+\\
+Então, integrando \ref{61} no intervalo $[-\pi, \pi]$, ficamos com:\\
+\begin{equation}
+    \int_{-\pi}^{\pi} f(x)\hspace{5pt}dx = \dfrac{a_0}{2}\int_{-\pi}^{\pi}dx + \sum\limits_{k=1}^{\infty}(a_k\int_{-\pi}^{\pi}\cos{kx}dx + b_k\int_{-\pi}^{\pi}\sin{kx}dx)
+\end{equation}
+\\
+Pela \ref{52}, todas as integrais somem\\
+\\
+\begin{equation}
+    \label{62}
+    \int_{-\pi}^{\pi}f(x) dx = \pi a_0
+\end{equation}
+\\
+Agora, vamos multiplicaros dois lados por $\cos{nx}$ e integrar o resultado no 
+intervalo $[-\pi, \pi]$, como antes, desta vez temos:\\
+\\
+\begin{equation}
+    \int_{-\pi}^{\pi} f(x)\cos{nx}\hspace{5pt}dx = \dfrac{a_0}{2}\int_{-\pi}^{\pi}\cos{nx}dx + \sum\limits_{k=1}^{\infty}(a_k\int_{-\pi}^{\pi}\cos{kx}\cos{nx}dx + b_k\int_{-\pi}^{\pi}\sin{kx}\cos{nx}dx)
+\end{equation}
+\\
+Pela \ref{52}, todas as integrais desaparecem, com exceção de uma, a de coeficiente $a_n$.\\
+\\
+\begin{equation}
+    \int_{-\pi}^{\pi}\cos^2{nx}dx = \pi
+\end{equation}
+\\ 
+E disso, temos\\
+\\
+\begin{equation}
+\label{63}
+    \int_{-\pi}^{\pi}f(x)\cos{nx}dx = a_n\pi
+\end{equation}
+\\
+De mesmo modo\\
+\\
+\begin{equation}
+\label{64}
+    \int_{-\pi}^{\pi}f(x)\sin{nx}dx = b_n\pi
+\end{equation}
+\\
+Então, dado \ref{63} e \ref{64}, temos\\
+\begin{equation}
+\label{eq:65}
+    \begin{split}
+        a_n &= \dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos{nx}dx\\
+        b_n &= \dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin{nx}dx
+    \end{split}
+\end{equation}
+\\
+Finalmente, se $f(x)$ é integrável e pode ser expandido em uma série trigonométrica,
+e se essa série e a série obtida multiplicando por $\cos{nx}$ e $\sin{nx}$ ($n = 1, 2, 3, ...$)
+pode ser integrada termo a termo, então os coeficientes $a_n$ e $b_n$ são dados pela
+fórmula \ref{eq:65}. Estes coeficientes são conhecidos como \textit{coeficientes de Fourier}
+da função $f(x)$, que representa a série trigonométrica conhecida como \textit{Série de
+Fourier}.\\
 \end{document}
+
