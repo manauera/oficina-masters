@@ -1,0 +1,4 @@
+\contentsline {section}{\numberline {}Fun\IeC {\c c}\IeC {\~o}es peri\IeC {\'o}dicas}{2}{section.1}
+\contentsline {section}{\numberline {}Harmonicos}{3}{section.2}
+\contentsline {section}{\numberline {}Polin\IeC {\^o}mios trigonom\IeC {\'e}tricos e s\IeC {\'e}ries}{6}{section.3}
+\contentsline {section}{\numberline {} Uma terminologia mais precisa}{7}{section.4}
