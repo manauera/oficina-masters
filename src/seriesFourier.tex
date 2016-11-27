@@ -1,0 +1,73 @@
+\section{Séries de Fourier para funções de período $2\pi$}
+Suponha que a função $f(x)$ de período $2\pi$ tenha a seguinte expansão:\\
+\begin{equation}
+    \label{61}
+    f(x) = \dfrac{a_0}{2} + \sum\limits_{k=1}^{\infty}(a_k\cos{kx} + b_k\sin{kx})
+\end{equation}
+\\
+onde, para simplificar para próximas fórmulas, vamos denotar a constante da 
+expansão como sendo $\dfrac{a_0}{2}$.\\
+\\
+Agora, vamos resolver o problema para achar os valores de $a_0, a_k, b_k$, para
+k = 1, 2, 3, ..., por um conhecimento em $f(x)$.\\
+\\
+Para isso, vamos fazer a seguinte suposição:\\
+\\
+$\to$ A série \ref{61} e a série a seguir podem ser integradas termo a termo, ou seja
+a integral das somas é igual a soma das integrais.
+\\
+\\
+Então, integrando \ref{61} no intervalo $[-\pi, \pi]$, ficamos com:\\
+\begin{equation}
+    \int_{-\pi}^{\pi} f(x)\hspace{5pt}dx = \dfrac{a_0}{2}\int_{-\pi}^{\pi}dx + \sum\limits_{k=1}^{\infty}(a_k\int_{-\pi}^{\pi}\cos{kx}dx + b_k\int_{-\pi}^{\pi}\sin{kx}dx)
+\end{equation}
+\\
+Pela \ref{52}, todas as integrais somem\\
+\\
+\begin{equation}
+    \label{62}
+    \int_{-\pi}^{\pi}f(x) dx = \pi a_0
+\end{equation}
+\\
+Agora, vamos multiplicaros dois lados por $\cos{nx}$ e integrar o resultado no 
+intervalo $[-\pi, \pi]$, como antes, desta vez temos:\\
+\\
+\begin{equation}
+    \int_{-\pi}^{\pi} f(x)\cos{nx}\hspace{5pt}dx = \dfrac{a_0}{2}\int_{-\pi}^{\pi}\cos{nx}dx + \sum\limits_{k=1}^{\infty}(a_k\int_{-\pi}^{\pi}\cos{kx}\cos{nx}dx + b_k\int_{-\pi}^{\pi}\sin{kx}\cos{nx}dx)
+\end{equation}
+\\
+Pela \ref{52}, todas as integrais desaparecem, com exceção de uma, a de coeficiente $a_n$.\\
+\\
+\begin{equation}
+    \int_{-\pi}^{\pi}\cos^2{nx}dx = \pi
+\end{equation}
+\\ 
+E disso, temos\\
+\\
+\begin{equation}
+\label{63}
+    \int_{-\pi}^{\pi}f(x)\cos{nx}dx = a_n\pi
+\end{equation}
+\\
+De mesmo modo\\
+\\
+\begin{equation}
+\label{64}
+    \int_{-\pi}^{\pi}f(x)\sin{nx}dx = b_n\pi
+\end{equation}
+\\
+Então, dado \ref{63} e \ref{64}, temos\\
+\begin{equation}
+\label{eq:65}
+    \begin{split}
+        a_n &= \dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos{nx}dx\\
+        b_n &= \dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin{nx}dx
+    \end{split}
+\end{equation}
+\\
+Finalmente, se $f(x)$ é integrável e pode ser expandido em uma série trigonométrica,
+e se essa série e a série obtida multiplicando por $\cos{nx}$ e $\sin{nx}$ ($n = 1, 2, 3, ...$)
+pode ser integrada termo a termo, então os coeficientes $a_n$ e $b_n$ são dados pela
+fórmula \ref{eq:65}. Estes coeficientes são conhecidos como \textit{coeficientes de Fourier}
+da função $f(x)$, que representa a série trigonométrica conhecida como \textit{Série de
+Fourier}.\\

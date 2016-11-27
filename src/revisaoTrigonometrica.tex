@@ -1,0 +1,218 @@
+\section{Revisão de trigonometria}
+
+Um \textit{sistema básico trigonométrico} significa um sistema de funções como 
+as de \ref{51} que possuem um período $T=2\pi$\\
+\begin{equation}
+\label{eq:51}
+    1, cos(x), sen(x), cos(2x), sen(2x), ... 
+\end{equation}
+\\
+Com base nessas funções, vamos mostrar algumas funções que irão auxiliar mais
+adiante.\\
+
+
+Para um inteiro $n \neq 0$, temos\\
+\begin{definicao}
+    \label{def:52}
+    A integral definida em um intervalo de tamanho $T=2\pi$ da função $f(x)=sen(x)$ é sempre 
+    igual a zero. O mesmo vale para $g(x)=cos(x)$.
+    \begin{equation}
+        \begin{split}
+            \int_{0}^{2\pi}cos(nx)dx & = [\dfrac{sen(nx)}{n}]_{0}^{2\pi} = 0\\
+            \int_{0}^{2\pi}sen(nx)dx & = [\dfrac{-cos(nx)}{n}]_{0}^{2\pi} = 0
+        \end{split}
+    \end{equation}
+\end{definicao}
+
+Se desenharmos o gráfico das funções $sen(x)$ e $cos(x)$, fica evidente que sua 
+integral é zero. Na figura \ref{fig:intSen}, a parte em \textcolor{red}{vermelho} 
+é positiva e a parte em \textcolor{blue}{azul} é negativa, e como ambas são iguais,
+a área total das funções $sen(x)$ e $cos(x)$ no intervalo $[0:2\pi]$ é zero.
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.85398,
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$,
+            $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$,
+            $\frac{5\pi}{2}$, $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+        \addplot[name path=A, mark=none, thick] {sin(deg(x))};
+        \addplot[name path=B]{0};
+        \addplot[red!40] fill between[of=A and B,
+            soft clip={domain=0:3.14159},];
+        \addplot[blue!40] fill between[of=A and B, 
+            soft clip={domain=3.14159:3.14159+3.14159},];
+    \end{axis}
+    \end{tikzpicture}
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.85398,
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$,
+            $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$,
+            $\frac{5\pi}{2}$, $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+        \addplot[name path=C, mark=none, thick] {sin(deg(x +1.5708))};
+        \addplot[name path=D]{0};
+        \addplot[red!40] fill between[of=C and D,
+            soft clip={domain=0:1.5708},];
+        \addplot[blue!40] fill between[of=C and D, 
+            soft clip={domain=1.5708:1.5708+3.14159},];
+        \addplot[red!40] fill between[of=C and D,
+            soft clip={domain=1.5708+3.14159:6.28318},];            
+    \end{axis}
+    \end{tikzpicture}    
+\caption{A integral como área das funções $f(x)=sen(x)$ e $g(x)=cos(x)$}
+\label{fig:intSen}
+\end{figure}
+
+Também podemos afirmar que\\
+\begin{definicao}
+    \label{def:53}
+    A integral definida em um intervalo de tamanho $T=2\pi$ da função $f(x)=sen^2(x)$
+    é sempre a metade do período. O mesmo vale para $g(x)=cos(x)$.
+    \begin{equation}
+        \begin{split}
+            \int_{0}^{2\pi}\cos^2{nx}dx & = \int_{0}^{2\pi}\dfrac{1 + \cos{2nx}}{2} dx = \pi\\
+            \int_{0}^{2\pi}sen^2nx dx & = \int_{0}^{2\pi}\dfrac{1 - \cos{2nx}}{2} dx = \pi
+        \end{split}
+    \end{equation}
+\end{definicao}
+
+Olhando para o gráfico das funções $f(x)=sen^2(x)$ e $g(x)=cos^2(x)$, representado na figura
+\ref{fig:intSenQuad} abaixo, fica claro que a parte que antes era negativa, torna-se positiva
+e a parte positiva permanece igual.
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.85398,
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$,
+            $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$,
+            $\frac{5\pi}{2}$, $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+        \addplot[name path=A, mark=none, thick] {sin(deg(x))*sin(deg(x))};
+        \addplot[name path=B]{0};
+        \addplot[red!40] fill between[of=A and B,
+            soft clip={domain=0:6.28318},];
+    \end{axis}
+    \end{tikzpicture}
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.85398,
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$,
+            $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$,
+            $\frac{5\pi}{2}$, $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+        \addplot[name path=C, mark=none, thick] {sin(deg(x +1.5708))*sin(deg(x +1.5708))};
+        \addplot[name path=D]{0};
+        \addplot[red!40] fill between[of=C and D,
+            soft clip={domain=0:6.28318},];           
+    \end{axis}
+    \end{tikzpicture}    
+\caption{A integral como área das funções $f(x)=sen^2(x)$ e $g(x)=cos^2(x)$}
+\label{fig:intSenQuad}
+\end{figure}
+
+ 
+Mais adiante, usando fórmulas trigonométricas conhecidas, temos\\
+\\
+\begin{equation}
+\label{eq:54}
+    \begin{split}
+        \cos{\alpha}\cos{\beta} dx & = \dfrac{1}{2}[\cos{(\alpha + \beta)} + \cos{(\alpha - \beta)}]\\
+        \sin{\alpha}\sin{\beta}dx & = \dfrac{1}{2}[\cos{(\alpha - \beta)} - \cos{(\alpha + \beta)}]
+    \end{split}
+\end{equation}
+\\
+para qualquer n, m.\\
+\\
+Finalmente, usando a fórmula \\
+\begin{equation}
+        \sin{\alpha}\cos{\beta} dx = \dfrac{1}{2}[\sin{(\alpha + \beta)} + \sin{(\alpha - \beta)}]    
+\end{equation}
+\\
+tiramos o seguinte:\\
+\\
+\begin{definicao}
+    \label{def:55}
+    A integral definida em um intervalo de tamanho $T=2\pi$ da função $f(x)=sen(nx)*cos(mx)$
+    é sempre igual a zero, para qualquer n, m.
+    \begin{equation}
+        \int_{0}^{2\pi}\sin{nx}\cos{mx}dx = 0
+    \end{equation}
+\end{definicao}
+
+A assim como em \ref{def:53}, fica evidente que a área do total da função 
+$f(x)=sen(x)*cos(x)$ é igual a zero.
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.85398,
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$,
+            $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$,
+            $\frac{5\pi}{2}$, $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+        \addplot[name path=A, mark=none, thick] {sin(deg(x))*sin(deg(x+1.5708))};
+        \addplot[name path=B]{0};
+        \addplot[red!40] fill between[of=A and B,
+            soft clip={domain=0:1.5708},];
+        \addplot[blue!40] fill between[of=A and B,
+            soft clip={domain=1.5708:3.14159},];
+        \addplot[red!40] fill between[of=A and B,
+            soft clip={domain=3.14159:4.7123889},];
+        \addplot[blue!40] fill between[of=A and B,
+            soft clip={domain=4.7123889:6.28318},];            
+    \end{axis}
+    \end{tikzpicture}
+\caption{A integral como área da função $f(x)=sen(x)*cos(x)$}
+\label{fig:intSenCos}
+\end{figure}
+
+As fórmulas de \ref{def:52} e \ref{eq:54}, mostram que a integral sobre um intervalo $[0, 2\pi]$
+do produto de qualquer duas funções diferentes do sistema \ref{eq:51} desaparece.
+
+Finalmente, definimos
+\begin{definicao}
+\label{def:56}
+    Duas funções $f(x)$ e $g(x)$ são ortogonais em um intervalo $[a,b]$ se
+    \begin{equation}
+        \int_{a}^{b} f(x)g(x)\hspace{4pt}dx = 0
+    \end{equation}
+\end{definicao}
+
+Com a definição \ref{def:56}, podemos dizer que os pares de funções em \ref{eq:51} são
+ortogonais no intervalo $[0, 2\pi]$.
+
+Como já foi dito na Sec. 1, a integral de uma função periódica é a mesma em
+qualquer outro intervalo de mesmo tamanho que o período, no caso $2\pi$.
+

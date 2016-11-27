@@ -1,0 +1,140 @@
+\section{ Uma terminologia mais precisa}
+Agora vamos introduzir a uma terminologia mais precisa e relembrar alguns fatos
+de cálculo integral e diferencial. Quando dizemos que $f(x)$ é integrável no 
+intervalo [a,b], siginifica que a integral\\
+\begin{equation}
+\label{int}
+    \int_{a}^{b}f(x)dx 
+\end{equation}
+(que pode ser imprópria) existe no sentido elementar. Portanto, nossas funções 
+integráveis $f(x)$ sempre serão contínuas ou com finitas descontinuidades no 
+intervalo [a,b], no qual a função pode ser limitada ou não.\\
+\\
+Em cursos de cálculo integral, primeiro se prova que a função possui um número
+finito de descontinuidades dentro de um intervalo, então se a integral\\
+\\
+\begin{equation}
+    \int_{a}^{b}|f(x)|dx 
+\end{equation} 
+\\
+existe, então \ref{int} também existe. Neste caso, a função $f(x)$ é tida como
+uma função \textbf{absolutamente integrável}. (Vale notar que o inverso pode não
+ser verdadeiro).\\
+\\
+\textbf{Propriedade 1}\\
+Se $f(x)$ é uma função absolutamente integrável e $g(x)$ é uma função integrável
+limitada, então o produto $f(x)g(x)$ é uma função absolutamente integrável também.
+\\
+\\
+A seguinte regra de integração por partes é válida:\\
+\\
+\textit{Seja f(x) e g(x) contínuas em [a,b], mas talvez não diferençiavel
+em um número finito de pontos. Portanto se f'(x) e g'(x) são absolutamente 
+integráveis, então temos:}\\
+\begin{equation}
+    \int_{a}^{b}f(x)g'(x) dx = [f(x)g(x)]_{a}^{b} - \int_{a}^{b}f'(x)g(x) dx
+\end{equation}
+
+Outro resultado familiar é o fato que se as funções $f_1(x), f_2(x), ..., f_n(x)$
+são integráveis no intervalo [a,b], então a soma deles também é integrável.\\
+\begin{equation}
+\label{43}
+    \int_{a}^{b}[\sum\limits_{k=1}^{n}f(x)]dx = \sum\limits_{k=1}^{n}\int_{a}^{b}f(x)dx
+\end{equation}
+
+Agora considere uma série infinita de funções:\\
+\begin{equation}
+\label{44}
+    f_1(x), f_2(x), f_3(x), ... = \sum\limits_{k=1}^{\infty}f_k(x)
+\end{equation}
+\\
+Uma série desse tipo é dita convergente se para um dado valor de x,
+suas somas parciais:\\
+\begin{equation}
+    s_n(x) = \sum\limits_{k=1}^{n}f_k(x)\text{, para n = 1, 2, 3, ...}
+\end{equation}
+\\
+tiverem um limite finito:\\
+\begin{equation}
+    s(x) = \lim_{x\to\infty} s_n(x)
+\end{equation}
+\\
+$s(x)$ é dita ser a soma da série e, obviamente, é uma função de $x$.\\
+\\
+Se a série converge para todo x no intervalo [a,b], então sua soma $s(x)$
+é definida em todo o intervalo [a,b].\\
+\\
+Agora perguntamos se a formula \ref{43} pode ser extendida para o caso de 
+uma série convergente de funções integráveis no intervalo [a,b], i.e.,
+a fórmula abaixo é válida?\\
+\begin{equation}
+\label{45}
+    \int_{a}^{b}[\sum\limits_{k=1}^{\infty}f(x)]dx = \int_{a}^{b}s(x) dx = \sum\limits_{k=1}^{\infty}\int_{a}^{b}f_k(x) dx
+\end{equation}
+\\
+Em outras palavras, a série pode ser integrada termo a termo?\\
+\\
+\ref{45} nem sempre é válida, simplesmente pela série de funções integráveis,
+ou até mesmo contínua pode, se quer, ter uma soma integrável. Um problema parecido 
+surge com relação a possibilidade de diferenciação termo a termo da série.
+E agora vamos descartar uma importante classe de séries de função para o qual 
+essas operações podem ser aplicadas.\\
+\\
+A série \ref{44} é dita ser uniformemente convergente em um intervalo [a,b] se
+para um número positivo qualquer $\varepsilon$, existe um número $N$ tal que a
+desigualdade abaixo seja verdadeira para todo $n \geq N$ e para todo x no 
+intervalo [a,b].\\
+\begin{equation}
+    |s(x) - s_n(x)| \leq \varepsilon
+\end{equation}
+\\
+Portanto, convergência uniforme significa que para um $n$ suficientemente 
+grande e para todo $x$ no intervalo, o gráfico da soma de séries $s(x)$ e o 
+gráfico da soma parcial $s_n(x)$, estão $\varepsilon$ distantes uma da outra,
+desse jeito, ambas as curvas estarão \textit{uniformemente perto} uma da outra.\\
+\\
+\textit{Importante Notar:}
+Não é qualquer série que converge no intervalo [a,b] e, também, convere uniformemente
+no mesmo intervalo.\\
+\\
+\textbf{gap} 
+\\
+O teste a seguir é um teste muito útil e simples para a convergencia uniforme
+de uma série de funções (Weierstrass M-Test):\\
+\textit{
+    Se a série infinita de números \\
+    \begin{equation}
+        M_1 + M_2 + M_3 + ... + M_k + ...
+    \end{equation}
+    \\
+    \\
+    convergir e, se para algum x no intervalo [a,b], nós tivermos $|f_k(x)| \leq M_k$
+    de um certo k em diante, então a série \ref{43} converge uniformemente ( e 
+    absolutamente) no intervalo [a,b].
+} 
+\\
+\textbf{gap}\\
+\\
+Os seguintes teoremas são válidos:
+
+\newtheorem{teo1}{Teorema}
+\begin{teo1}
+    Se os termos da série \ref{44} são contínuos em [a,b] e se a
+    série converge uniformemente em [a,b], então:\\
+    a) A soma da série é contínua\\
+    b) A soma pode ser integrada termo a termo
+\end{teo1}
+
+\newtheorem{teo2}{Teorema}
+\begin{teo2}
+    Se a série \ref{44} converge, e se os termos da série são diferenciáveis
+    e se a série:\\
+    \begin{equation}
+        f_1^{'}(x) + f_2^{'}(x) + f_3^{'}(x) + ... = \sum\limits_{k=1}^{\infty}f_k^{'}(x)
+    \end{equation}
+    é uniformemente convergente em [a,b], então\\
+    \begin{equation}
+        (\sum\limits_{k=1}^{\infty} f(x))^{'} = s^{'}(x) = \sum\limits_{k=1}^{\infty}f_k^{'}(x)
+    \end{equation}
+    i.e., a série \ref{44} pode ser diferenciada termo a termo.
+\end{teo2}
