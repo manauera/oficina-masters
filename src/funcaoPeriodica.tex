@@ -1,0 +1,243 @@
+
+\section{Funções periódicas}
+
+\begin{definicao}
+\label{def1}
+    
+Uma função $f(x)$ é dita periódica se existe uma constante $T > 0$, tal que 
+\begin{equation}
+    f(x + T) = f(x)
+\end{equation}
+para qualquer $T \in \mathbb{R}$. 
+\end{definicao}
+Essa constante T é chamada de período da função $f(x)$. As funções periódicas 
+mais comuns são $\sin{x}$, $\cos{x}$, $\tan{x}$, etc. Funções periódicas surgem
+em muitas aplicações matemáticas e em problemas de física e engenharia. 
+\\
+Se plotarmos o gráfico da função $y=f(x)$ em qualquer intervalo fechado 
+\mbox{$a \leq x \leq a + T$}, é possível obter o gráfico de $f(x)$ através da 
+repitição periódica da porção do gráfico correspondente a \mbox{$a \leq x \leq a + T$}.
+Na figura ~\ref{fig:periodExp}, temos uma função periódica de período $T=2\pi$.
+\\
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708, 1,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.28318, 
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$, $a$,
+            $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$, $a+2\pi$,
+            $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+    \addplot [mark=none, thick] {sin(deg(x)) + 1/2*sin(deg(2*x)) + 1/4*sin(deg(3*x))};
+
+    \addplot [name path=border,
+            color=gray, thick, dashed]
+            coordinates {(1,0) (1,5) } ;
+    \addplot [name path=border,
+            color=gray, thick, dashed]
+            coordinates {(1+2*3.14159,0) (1+2*3.14159,5) };
+    \end{axis}  
+    \end{tikzpicture} \\
+    \caption{Na figura, $f(a) = f(a + 2\pi)$}
+    \label{fig:periodExp}
+\end{figure}
+
+Se $T$ é um período da função periódica $f(x)$, então seus múltiplos $2T$, $3T$, $4T$, etc 
+também são períodos da função $f(x)$. Isso é verificado facilmente ao inspecionar 
+os gráficos de uma função periódica, ou pela série de igualdades:\\
+\begin{equation}
+\label{prop2}
+    f(x) = f(x + T) = f(x + 2T) = f(x + 4T) = ...
+\end{equation} 
+\\
+Assim, temos\\
+\begin{definicao}
+    Se uma função f(x) possui um período $T$, então $kT$ também é um período de
+    f(x), ou seja \textbf{se um período existe, ele não é único}
+\end{definicao}
+
+Vamos mostrar que o resultado da soma de duas funções periódicas de período T
+é também uma função de período T. Então, dadas as funções $f(x) = sen(x)$ e $g(x) = sen(2x)$,
+seus gráficos são, respectivamente:\\
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.85398,
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$,
+            $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$,
+            $\frac{5\pi}{2}$, $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+    \addplot [mark=none, thick] {sin(deg(x))};
+    \end{axis}
+    \end{tikzpicture}
+    \caption{$f(x)=sen(x)$}
+    \label{fig:senx}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.85398,
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$,
+            $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$,
+            $\frac{5\pi}{2}$, $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+    \addplot [mark=none, thick] {sin(deg(2*x))};
+    \label{sen2x}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{$f(x)=sen(2x)$}
+    \label{fig:sen2x}
+\end{figure}
+
+Assim, temos duas funções periódicas de período $T = 2\pi$, vale notar que o período mínimo 
+de $f(x)$, $T_f = 2\pi$, é maior que o período mínimo de $g(x)$, $T_g = \pi$, mas
+que ambas as funções tem o período em comum de $T = 2\pi$. Para somar essas duas
+funções, basta somar o valor de $f(x)$ para cada valor de x ao valor de $g(x)$ para 
+cada valor de x. Então, teremos o seguinte:
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        ymin=-2.5,
+        ymax=2.5,
+        ytick={-2,-1,0,1,2},
+        yticklabels={-2,-1,0,1,2},
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.85398,
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$,
+            $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$,
+            $\frac{5\pi}{2}$, $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+    \addplot [mark=none, thick] {sin(deg(x)) + sin(deg(2*x))};
+    \label{sen2x}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{$f(x)=sen(x)+sen(2x)$}
+    \label{fig:addExp}
+\end{figure}
+
+É possível ver que, a função $f(x)$ possui um período mínimo maior que a função $g(x)$,
+assim, \textbf{a função resultante é uma função de período mínimo $T = 2\pi$}, a 
+subtração funciona de forma semelhante.\\
+
+Agora podemos afirmar que a soma e a diferença de duas funções 
+periódica de período T é também uma função periódica com período T, onde
+T é o maior período entre as funções.\\
+
+E quanto à multiplicação e à divisão? Podemos afirmar o mesmo?\\
+
+A resposta é sim, funciona de forma semelhante da soma e da subtração, multiplicando
+os valores $f(x)$ por $g(x)$, para todo x. Ficamos com seguinte:
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        ymin=-2.5,
+        ymax=2.5,
+        ytick={-2,-1,0,1,2},
+        yticklabels={-2,-1,0,1,2},
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.85398,
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$,
+            $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$,
+            $\frac{5\pi}{2}$, $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+    \addplot [mark=none, thick] {sin(deg(x)) * sin(deg(2*x))};
+    \end{axis}
+    \end{tikzpicture}
+    \caption{$f(x)=sen(x)*sen(2x)$}
+    \label{fig:multExp}
+\end{figure}
+
+Por mais esquisito que a função fique, podemos observar que a função resultante
+permaneceu com o período $T = 2\pi$. Dessa forma, está claro que operações 
+de funções que partilham um mesmo período, terá uma função resultante com o mesmo
+período.\\
+
+\begin{definicao}
+    Seja $f(x)$ e $g(x)$ duas funções periódicas com período em comum $T$, a soma, subtração,
+    multiplicação e divisão das duas funções resulta em uma função periódica de 
+    mesmo período mínimo é o maior período entre $f(x)$ e $g(x)$.
+\end{definicao}
+
+Mais adiante, temos a seguinte propriedade de qualquer função periódica $f(x)$
+com período $T$:\\
+\begin{definicao}
+\label{def}
+Se f(x) é integrável em um intervalo de tamanho T,
+então é integrável em qualquer outro intervalo de tamanho T, e o valor da integral
+é o mesmo\\
+\begin{equation}
+\label{int_prop1}
+    \int_a^{a+T} \! f(x) \, \mathrm{d}x = \int_b^{b+T} \! f(x) \, \mathrm{d}x.
+\end{equation}
+para qualquer a, b. \\
+\end{definicao}
+
+Essa propriedade é uma consequência imediata da interpretação da integral como
+área. Cada integral é igual a área incluida entre a curva $y=f(x)$, o eixo x e
+as ordenadas desenhadas nos limites do intervalo, onde áreas acima do eixo x
+são tidas como positivas, e áreas abaixo são tidas como negativas. No caso,
+as áreas representadas pelas duas integrais são a mesma por causa da propriedade 
+de \ref{def1}. A figura \ref{fig:int_area}, a área em \textcolor{blue}{azul} e a
+área em \textcolor{red}{vermelho} representam as áreas das integrais da função
+periódica $f(x)=sen(4x)+sen(2x)$ de período $T=\pi$ para intervalos de tamanho $\pi$. 
+\\
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        ymin=-2.5,
+        ymax=2.5,
+        ytick={-2,-1,0,1,2},
+        yticklabels={-2,-1,0,1,2},
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.85398,
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$,
+            $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$,
+            $\frac{5\pi}{2}$, $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+        \addplot[name path=A, mark=none, thick] {sin(deg(4*x)) + sin(deg(2*x))};
+        \addplot[name path=B]{0};
+        \addplot[blue!40] fill between[of=A and B,
+            soft clip={domain=0:3.14159},];
+        \addplot[red!40] fill between[of=A and B, 
+            soft clip={domain=4.712385:7.853975},];
+    \end{axis}
+    \end{tikzpicture}
+\caption{Em azul, a integral do intervalo $[0:\pi]$ e em vermelho, a área do intervalo $[\dfrac{3\pi}{2}, \dfrac{5\pi}{2}]$}
+\label{fig:int_area}
+\end{figure}
+
+Daqui em diante, quando uma função $f(x)$ de aperíodo $T$ for integrável, então
+ela será integrável em qualquer intervalo de tamanho $T$.
