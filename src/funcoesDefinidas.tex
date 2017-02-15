@@ -1,0 +1,183 @@
+\chapter{Séries de Fourier para funções definidas em um intervalo de tamanho $2\pi$}
+
+Existem funções que são definidas apenas em um intervalo. Por questão de 
+simplicidade, imagina que esse intervalo seja $[-\pi, \pi]$, ou qualquer
+outro intervalo de tamanho $2\pi$.
+
+Neste caso, não estamos falando de uma funções periódica, e sim de uma 
+função definida em um intervalo fechado, mas ainda assim, é possível
+escrever a Série de Fourier para tal funções.
+
+Para isso, temos que observar ao fato de que as funções \ref{eq:65}
+envolvem apenas um intervalo de tamanho $2\pi$. Então, podemos 
+interpretar a série de Fourier para uma função $f(x)$ definida 
+em um intervalo como sendo a repetição de $f(x)$ daquele intervalo
+para todo o eixo-x.
+\\
+
+Isso pode dar um nó na cabeça, então vamos por partes!
+\\
+
+Dado a função $f(x) = x^2$, para $x \in [-\pi,\pi]$. Temos o gráfico da 
+função representado pela Figura \ref{fig:functInt}.
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-pi,
+        ymin=-10,
+        ymax=10,
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.85398,
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$,
+            $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$,
+            $\frac{5\pi}{2}$, $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+        \addplot[name path=A, mark=none, thick, domain=-pi:pi] {x^2};      
+    \end{axis}
+    \end{tikzpicture} 
+
+    \caption{Uma função definida em um intervalo de $[-\pi, \pi]$}
+    \label{fig:functInt}
+\end{figure}
+
+Se expardirmos a função para todo eixo-x, teremos exatamente a série
+de Fourier daquela função, ficaria parecido com o gráfico representado 
+pela Figura \ref{fig:functIntRep}.
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-pi,
+        ymin=-10,
+        ymax=10,
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.85398,
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$,
+            $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$,
+            $\frac{5\pi}{2}$, $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+        \addplot[name path=A, mark=none, thick, domain=-pi:pi] {x^2};
+        \addplot[name path=B, mark=none, thick, domain=pi:3*pi] {x^2 - 4*pi*x + 39.5};        
+        \addplot[name path=C, mark=none, thick, domain=-pi:5*pi] {x^2 - 8*pi*x + 157.9};        
+    \end{axis}
+    \end{tikzpicture} 
+
+    \caption{A mesma função expandida para todo eixo-x}
+    \label{fig:functIntRep}
+\end{figure}
+
+Este caso seria o mais simples, onde $f(-\pi) = f(\pi)$ e portanto
+uma expansão periódica dela seria contínua. 
+
+Agora considera a função $g(x) = x$ no mesmo intervalo, teríamos um
+gráfico como na Figura \ref{fig:functImpar}
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-pi,
+        ymin=-4,
+        ymax=4,
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.85398,
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$,
+            $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$,
+            $\frac{5\pi}{2}$, $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+        \addplot[name path=A, mark=none, thick, domain=-pi:pi] {x};      
+    \end{axis}
+    \end{tikzpicture} 
+
+    \caption{Uma função definida em um intervalo de $[-\pi, \pi]$}
+    \label{fig:functImpar}
+\end{figure}
+
+Se simplesmente extender a função como fizemos com $f(x)$, teremos 
+um gráfico representado pela Figura \ref{fig:functImparRep}
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-pi,
+        ymin=-4,
+        ymax=4,
+        xtick={
+            -6.28318, -4.7123889, -3.14159, -1.5708,
+            1.5708, 3.14159, 4.7123889, 6.28318, 7.85398,
+            9.42478, 10.99558, 12.56638
+        },
+        xticklabels={
+            $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$,
+            $\frac{\pi}{2}$, \ \ \ $\pi$, $\frac{3\pi}{2}$, $2\pi$,
+            $\frac{5\pi}{2}$, \ \ \ \ \ \ $3\pi$, $\frac{7\pi}{2}$, $4\pi$
+        }]
+        \addplot[name path=A, mark=none, thick, domain=-pi:pi] {x};      
+        \addplot [name path=A1,
+            color=gray, thick, dashed]
+            coordinates {(pi,-pi) (pi,pi) } ;
+        \addplot[name path=B, mark=none, thick, domain=pi:3*pi] {x - 2*pi};
+        \addplot [name path=B1,
+            color=gray, thick, dashed]
+            coordinates {(3*pi,-pi) (3*pi,pi) } ;
+        \addplot[name path=C, mark=none, thick, domain=3*pi:5*pi] {x - 4*pi};      
+    \end{axis}
+    \end{tikzpicture} 
+
+    \caption{Uma função definida em um intervalo de $[-\pi, \pi]$}
+    \label{fig:functImparRep}
+\end{figure}
+
+Então, temos que $g(-\pi) \neq g(\pi)$ e ao extender periodicamente
+a função $g(x)$, teríamos descontinuidades nesses pontos. Então, para 
+esses valores coincidirem, é preciso alterar os valores da função $g(x)$
+nos pontos $x = -\pi$ e $x = \pi$.
+\\
+
+\begin{enumerate}
+    \item[(i)] Podemos ignorar os valores de $g(x)$ em $x = -\pi$ e 
+    $x = \pi$, tornando a função indefinida nesses pontos, e assim
+    indefinida nos pontos $x = (2k + 1)\pi$, para $k \in \mathbb{N}$
+    \item[(ii)] Podemos modificar os valores de $g(x)$ em $x = -\pi$ e
+    $x = \pi$ para que satisfaça $g(-\pi) = g(\pi)$.
+\end{enumerate}
+
+Apenas como exemplo, a série de Fourier da função $g(x)$ no intervalo
+de $[-\pi,\pi]$ é dada exatamente por 
+\begin{equation}
+    g(x) = 2\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n+1}sen(nx)}{n}
+\end{equation}
+e será explicada com detalhes mais adiante.
+
+Isso acontece que a série de Fourier necessita apenas dos coeficientes,
+e estes, por sua vez, necessita apenas de um intervalo definido, e 
+portanto, qualquer uma das duas alternativas que escolhermos, a série
+de Fourier será a mesma. 
+ 
+
+
+Pela definição de funções periódicas \ref{def:functPer}, não teríamos uma 
+função periódica válida. 
+
+
+Temos uma função com período $T = 2\pi$ e 
+$g(\pi) \neq g(\pi + 2\pi)$, onde temos a descontinuidade. Então, para estes 
+casos, temos que alterar o valor da função $g(x)$ para que a igualdade 
+$g(x) = g(x + 2\pi)$ seja válida.
+

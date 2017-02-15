@@ -1,0 +1,103 @@
+\chapter{Limites à esquerda, à direita e descontinuidades}
+
+Neste seção, vamos revisar os conceitos de limites à direita
+e à esquerda, assim como introduzir a seguinte notação:
+\begin{equation}
+    \lim_{x\to x_0\text{, }x < x_0} = f(x_0 - 0)\hspace{10pt},\hspace{10pt}\lim_{x\to x_0\text{, }x > x_0} = f(x_0 + 0)
+\label{not:limites}
+\end{equation}
+dado que estes limites existem e são finitos.
+
+O primeiro destes limites é chamado de \textit{limite à esquerda}
+de $f(x)$ no ponto $x_0$, e o segundo é chamado de \textit{limite à 
+direita} de $f(x)$ no ponto $x_0$.
+
+Se estes limites existem em um ponto $x_0$ onde $f(x)$ é contínuo, 
+então
+\begin{equation}
+\notag
+    f(x_0 - 0) = f(x_0) = f(x_0 + 0)
+\end{equation}
+
+Caso $x_0$ seja um ponto de descontinuidade de $f(x)$, então os 
+limites \ref{not:limites} podem ou não existir (um deles ou ambos).
+
+Se ambos os limites existem, dizemos que o ponto $x_0$ é um ponto
+de \textit{descontinuidade de primeira ordem}, ou simplemente, um 
+``salto descontínuo".
+
+Se ao menos um desses limites não existir, então o ponto $x_0$ é 
+dito ponto de \textit{descontinuidade de segunda ordem}.
+
+Para este curso, estaremos apenas interessados no primeiro caso.
+Então, se $x_0$ é um $salto$, então
+\begin{equation}
+\notag
+    \delta = f(x_0 + 0) - f(x_0 - 0)
+\end{equation}
+é chamado de ``salto" da função $f(x)$ no ponto $x_0$.
+
+Para ilustrar essa situação, suponha que 
+\begin{equation}
+\notag
+    f(x)=\begin{cases}
+        -x^3 &\text{ , se }x < 1\\
+        0 &\text{ , se }x = 1\\
+        \sqrt{x} &\text{ , se }x > 1
+    \end{cases}
+\end{equation}
+representado pela Figura \ref{fig:saltoEx}.
+
+\begin{figure}[H]
+    \begin{center}
+        \begin{tikzpicture}
+        \begin{axis}[
+            Axis Style,
+            xmin=-2,
+            xmax=3,
+            width=8cm,
+            xtick={
+                1
+            },
+            xticklabels={
+                \ \ \ 1
+            }]
+            \addplot[name path=A, mark=none, thick, domain=-2:1] {-x^3};
+            \addplot [name path=border,
+                    color=gray, thick, dashed]
+                    coordinates {(1,-1) (1,1) } ;
+            \addplot[name path=B, mark=none, thick, domain=1:3] {sqrt(x)};
+            
+        \end{axis}
+        \end{tikzpicture}   
+    \end{center}
+    \caption{Descontinuidade em $x = 1$}
+    \label{fig:saltoEx}
+\end{figure}
+
+Os limites à direita e à esquerda são, respectivamente:
+\begin{equation}
+\notag
+    f(1 - 0) = -1\text{  e  }f(1 + 0) = 1
+\end{equation} 
+
+Portanto, o salto da função em $x = 1$ é
+\begin{equation}
+\notag
+    \delta = f(1 + 0) - f(1 - 0) = 2
+\end{equation} 
+
+Disso, podemos supor o seguinte:
+\\
+
+Se $f(x)$ é uma função contínua no intervalo $[0, 2\pi]$ e $f(0) \neq f(2\pi)$,
+descontinuidades aparecem ao realizar a extensão periódica de $f(x)$ de $[0, 2\pi]$
+para todo o eixo-x, e todo os saltos descontínuos serão de tamanho
+\begin{equation}
+\notag
+\begin{split}
+    \delta & = f(0 + 0) - f(0 - 0)\\
+    &\text{    ou}\\
+    \delta & = f(2\pi + 0) - f(2\pi - 0)
+\end{split}
+\end{equation} 

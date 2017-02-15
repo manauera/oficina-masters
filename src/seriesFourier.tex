@@ -1,67 +1,76 @@
-\section{Séries de Fourier para funções de período $2\pi$}
+\chapter{Séries de Fourier para funções de período $2\pi$}
 Suponha que a função $f(x)$ de período $2\pi$ tenha a seguinte expansão:\\
 \begin{equation}
-    \label{61}
     f(x) = \dfrac{a_0}{2} + \sum\limits_{k=1}^{\infty}(a_k\cos{kx} + b_k\sin{kx})
+\label{eq:61}
 \end{equation}
 \\
 onde, para simplificar para próximas fórmulas, vamos denotar a constante da 
 expansão como sendo $\dfrac{a_0}{2}$.\\
 \\
 Agora, vamos resolver o problema para achar os valores de $a_0, a_k, b_k$, para
-k = 1, 2, 3, ..., por um conhecimento em $f(x)$.\\
+\mbox{$k \in \mathbb{N}$}, por um conhecimento em $f(x)$.\\
 \\
 Para isso, vamos fazer a seguinte suposição:\\
 \\
-$\to$ A série \ref{61} e a série a seguir podem ser integradas termo a termo, ou seja
+$\to$ A série \ref{eq:61} e a série a seguir podem ser integradas termo a termo, ou seja
 a integral das somas é igual a soma das integrais.
 \\
 \\
-Então, integrando \ref{61} no intervalo $[-\pi, \pi]$, ficamos com:\\
+Então, integrando \ref{eq:61} no intervalo $[0, 2\pi]$, ficamos com:\\
 \begin{equation}
-    \int_{-\pi}^{\pi} f(x)\hspace{5pt}dx = \dfrac{a_0}{2}\int_{-\pi}^{\pi}dx + \sum\limits_{k=1}^{\infty}(a_k\int_{-\pi}^{\pi}\cos{kx}dx + b_k\int_{-\pi}^{\pi}\sin{kx}dx)
+\begin{split}
+    \int_{0}^{2\pi} f(x)\hspace{5pt}dx = &\\
+     &\dfrac{a_0}{2}\int_{0}^{2\pi}dx + \sum\limits_{k=1}^{\infty}(a_k\int_{0}^{2\pi}\cos{kx}dx + b_k\int_{0}^{2\pi}\sin{kx}dx)
+\end{split}
+\end{equation}
+
+Pela Definição \ref{def:52}, todas as integrais somem, ficando apenas com a parte 
+constante:
+
+\begin{equation}
+    \int_{0}^{2\pi}f(x) dx = \pi a_0
+    \label{eq:62}
+\end{equation}
+
+Agora, se multiplicarmos os dois lados por $cos(nx)$ e integrar o resultado no 
+intervalo $[0, 2\pi]$ como antes, desta vez teremos:\\
+
+\begin{equation}
+\begin{split}
+    \int_{0}^{2\pi} f(x)\cos{nx}\hspace{5pt}dx = &\dfrac{a_0}{2}\int_{0}^{2\pi}\cos{nx}dx + \\
+    &\sum\limits_{k=1}^{\infty}(a_k\int_{0}^{2\pi}\cos{kx}\cos{nx}dx + b_k\int_{0}^{2\pi}\sin{kx}\cos{nx}dx)
+\end{split}
 \end{equation}
 \\
-Pela \ref{52}, todas as integrais somem\\
-\\
+Pela Definição \ref{def:52}, todas as integrais desaparecem, com exceção de uma, a 
+de coeficiente $a_n$.
+
 \begin{equation}
-    \label{62}
-    \int_{-\pi}^{\pi}f(x) dx = \pi a_0
-\end{equation}
-\\
-Agora, vamos multiplicaros dois lados por $\cos{nx}$ e integrar o resultado no 
-intervalo $[-\pi, \pi]$, como antes, desta vez temos:\\
-\\
-\begin{equation}
-    \int_{-\pi}^{\pi} f(x)\cos{nx}\hspace{5pt}dx = \dfrac{a_0}{2}\int_{-\pi}^{\pi}\cos{nx}dx + \sum\limits_{k=1}^{\infty}(a_k\int_{-\pi}^{\pi}\cos{kx}\cos{nx}dx + b_k\int_{-\pi}^{\pi}\sin{kx}\cos{nx}dx)
-\end{equation}
-\\
-Pela \ref{52}, todas as integrais desaparecem, com exceção de uma, a de coeficiente $a_n$.\\
-\\
-\begin{equation}
-    \int_{-\pi}^{\pi}\cos^2{nx}dx = \pi
+\notag
+    \int_{0}^{2\pi}cos^2(nx)dx = \pi
 \end{equation}
 \\ 
 E disso, temos\\
 \\
 \begin{equation}
-\label{63}
-    \int_{-\pi}^{\pi}f(x)\cos{nx}dx = a_n\pi
+\label{eq:63}
+    \int_{0}^{2\pi}f(x)cos(nx)dx = a_n\pi
 \end{equation}
 \\
 De mesmo modo\\
 \\
 \begin{equation}
-\label{64}
-    \int_{-\pi}^{\pi}f(x)\sin{nx}dx = b_n\pi
+\label{eq:64}
+    \int_{0}^{2\pi}f(x)\sin{nx}dx = b_n\pi
 \end{equation}
 \\
-Então, dado \ref{63} e \ref{64}, temos\\
+Então, dado \ref{eq:63} e \ref{eq:64}, temos\\
 \begin{equation}
 \label{eq:65}
     \begin{split}
-        a_n &= \dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos{nx}dx\\
-        b_n &= \dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin{nx}dx
+        a_n &= \dfrac{1}{\pi}\int_{0}^{2\pi}f(x)cos(nx)dx\\
+        b_n &= \dfrac{1}{\pi}\int_{0}^{2\pi}f(x)sen(nx)dx
     \end{split}
 \end{equation}
 \\
@@ -70,4 +79,51 @@ e se essa série e a série obtida multiplicando por $\cos{nx}$ e $\sin{nx}$ ($n
 pode ser integrada termo a termo, então os coeficientes $a_n$ e $b_n$ são dados pela
 fórmula \ref{eq:65}. Estes coeficientes são conhecidos como \textit{coeficientes de Fourier}
 da função $f(x)$, que representa a série trigonométrica conhecida como \textit{Série de
-Fourier}.\\
+Fourier} de $f(x)$.\\
+
+\begin{teorema}
+    Se uma função $f(x)$ de período $2\pi$ pode ser expandida
+    em uma série trigonométrica na qual converge uniformemente 
+    em todo eixo-x, então essa é uma Série de Fourier de $f(x)$.
+\end{teorema}
+\begin{proof}
+    Supondo que $f(x)$ satisfaz \ref{eq:61}, onde as séries são
+    uniformemente convergente. \\
+    \\
+    Temos então, pelo Teorema \ref{teo:unifConv}, que $f(x)$ é
+    contínuo e integrável termo a termo. Isso nos dá a fórmula
+    \ref{eq:62}.\\
+
+    Analisando a igualdade
+    \begin{equation}
+        f(x)cos(nx) = \dfrac{a_0 cos(nx)}{2} + \sum\limits_{k=1}^{\infty}(a_kcos(kx)cos(nx) + b_ksen(kx)cos(nx))
+    \label{eq:67}
+    \end{equation} 
+    e mostrar que a série à direita é uniformemente convergente setando
+    \begin{equation}
+        s_m(x) = \dfrac{a_0}{2} + \sum\limits_{k=1}^{\infty}(a_kcos(kx)+b_ksen(kx))
+    \end{equation}
+    e seja $\epsilon$ um número arbitrário positivo.
+
+    Se a série \ref{eq:61} converge uniformemente, então existe
+    um número $\mathcal{N}$ tal que 
+    \begin{equation}
+        |f(x) - s_m(x)| \leq \epsilon
+    \end{equation}
+    para todo $m \geq \mathcal{N}$. 
+
+    O produto $s_m(x)cos(nx)$ é obviamente a m-ésima soma parcial
+    da série \ref{eq:67}, então a desigualdade
+    \begin{equation}
+        |f(x)cos(nx) - s_m(x)cos(nx)| = |f(x) - s_m(x)||cos(nx)| \leq \epsilon
+    \end{equation}
+    é verdade para todo $m \geq \mathcal{N}$.
+
+    Com isso, podemos dizer que a série \ref{eq:67} converge uniformemente.
+    E disso temos que a série pode ser integrada termo a termo, o resultado
+    disso é a equação \ref{eq:63}. De modo semelhante, provamos a fórmula
+    \ref{eq:64}.
+
+    Finalmente, as fórmulas \ref{eq:65} são válidas para os coeficientes $a_n$
+    e $b_n$, que significa que a fórmula \ref{eq:61} é a Série de Fourier de $f(x)$.
+\end{proof}

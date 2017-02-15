@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{report}
 
 \renewcommand{\thesection}{}
 \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
@@ -9,7 +9,7 @@
 \def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
 \makeatother
 
-\newcommand{\senoide}{\mbox{$y = A\sin{(\omega x + \varphi)}$}}
+\newcommand{\senoide}{\mbox{$y = \mathcal{A}\sin{(\omega x + \varphi)}$}}
 
 \usepackage[utf8]{inputenc}
 
@@ -26,9 +26,15 @@
 \usepackage[portuguese, ruled, linesnumbered]{algorithm2e}
 \usepackage{float}
 \usepackage{pgfplots}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[portuguese]{babel}
+\usepackage{mwe}
+\usepackage{subfig}
+
 \usepgfplotslibrary{fillbetween}
 \pgfkeys{/pgfplots/Axis Style/.style={
-    width=13.5cm, height=5cm,
+    width=13.5cm, height=6cm,
     axis x line=center, 
     axis y line=middle, 
     samples=200,
@@ -41,7 +47,7 @@
 \newtheorem{teorema}{Teorema}
 
 \theoremstyle{definition} 
-
+\newtheorem{propriedade}{Propriedade}
 \newtheorem*{exemplo}{Exemplo}
 
 
@@ -61,7 +67,7 @@
     linktoc=all
 }
 
-%o começo do documento
+% o começo do documento
 \begin{document}
 
 % compila o título
@@ -69,18 +75,20 @@
 
 % compila a tabela de conteúdos
 \tableofcontents
+\listoffigures
 \newpage
 
 %\input{./src/funcaoPeriodica.tex}
-
 %\input{./src/harmonicos.tex}
-
 %\input{./src/polinomiosTrigonometricos.tex}
-
 %\input{./src/terminologia.tex}
-
-\input{./src/revisaoTrigonometrica.tex}
-
+%\input{./src/revisaoTrigonometrica.tex}
 %\input{./src/seriesFourier.tex}
+%\input{./src/funcoesDefinidas.tex}
+%\input{./src/limites.tex}
+%\input{./src/suavidade.tex}
+%\input{./src/criterioConvergencia.tex}
+%\input{./src/funcaoPar.tex}
+%\input{./src/seriesSenCos.tex}
+\input{./src/exemplos.tex}
 \end{document}
-

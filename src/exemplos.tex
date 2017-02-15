@@ -1,0 +1,76 @@
+\chapter{Exemplos de expansões em séries de Fourier}
+\section*{Exemplo 1}
+Expandir a função $f(x) = x^2$ definida no intervalo $-\pi < x < \pi$ em 
+Série de Fourier. A Figura \ref{fig:functIntRepEx} abaixo representa a função
+junto com sua extensão periódica ao longo do eixo-x. A função extendida
+é contínua e semi-suave. Portanto, pelo critério de convergência do Cap. 10,
+a série de Fourier de $f(x) = x^2$ converge em todo intervalo $[-\pi,\pi]$, e
+também na sua extensão periódica fora desse intervalo. Além disso, a convergência
+é absoluta e uniforme. 
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-pi,
+        ymin=-3,
+        ymax=10,
+        ytick style={draw=none},
+        yticklabels={},
+        xtick={
+            -3.14159,
+            3.14159,
+            9.42478
+        },
+        xticklabels={
+            $-\pi$,
+            $\pi$, $3\pi$
+        }]
+        \addplot[name path=A, mark=none, thick, domain=-pi:pi] {x^2};
+        \addplot[name path=B, mark=none, thick, domain=pi:3*pi] {x^2 - 4*pi*x + 39.5};
+        \addplot[name path=C, mark=none, thick, domain=-pi:5*pi] {x^2 - 8*pi*x + 157.9};
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(-pi,0) (-pi,pi*pi) } ;
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(pi,0) (pi,pi*pi) } ;
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(3*pi,0) (3*pi,pi*pi) };
+    \end{axis}
+    \end{tikzpicture} 
+
+    \caption{A mesma função expandida para todo eixo-x}
+    \label{fig:functIntRepEx}
+\end{figure}
+
+Como a função $f(x)$ é par, não precisamos obter o coeficiente $b_n$ como mostrado 
+no capítulo anterior, assim, temos
+\begin{equation}
+\notag
+\label{eq:exemplo1}
+    \begin{split}
+        a_0 &= \dfrac{2}{\pi} \int\limits_{0}^{\pi}x^2 dx = \dfrac{2}{\pi}\left[\dfrac{x^3}{2}\right]_{x=0}^{x=\pi} = \dfrac{2\pi^2}{3}\\
+        \text{Adiante, temos o }a_n &\\
+        a_n &= \dfrac{2}{\pi} \int\limits_{0}^{\pi}x^2 cos(nx) dx\\
+        \text{Usando a fórmula \ref{eq:43}}&\\
+        &= -\dfrac{2}{\pi}\left( \left[\dfrac{x^2sen(nx)}{n}\right]_{x=0}^{x=\pi} - \dfrac{2}{\pi n}\int_{0}^{\pi}\dfrac{2x sen(nx)}{n}dx \right)\\
+        sen(n\pi)\text{ é sempre zero e integral de }& cos(nx) = \dfrac{sen(nx)}{n}\\
+        &= -\dfrac{4}{\pi n}\int_{0}^{\pi}x sen(nx)dx \\
+        &= -\dfrac{4}{\pi n} \left(\left[\dfrac{x cos(nx)}{n}\right]_{x=0}^{x=\pi} - \int_{0}^{\pi}\dfrac{cos(nx)}{n} \right)\\
+        &= -\dfrac{4}{\pi n^2} \left(\left[x cos(nx)\right]_{x=0}^{x=\pi} - \int_{0}^{\pi}cos(nx)\right)\\
+        &= -\dfrac{4}{\pi n^2} \left(\left[x cos(nx)\right]_{x=0}^{x=\pi} - \dfrac{sen(\pi n)}{n}\right)\\
+        &= -\dfrac{4}{\pi n^2} \left(\left[x cos(nx)\right]_{x=0}^{x=\pi}\right)\\
+        &= -\dfrac{4}{\pi n^2} \left( - \pi cos(\pi n) + 0 cos(0) \right)\\
+        &= \dfrac{4}{n^2}cos(\pi n) = (-1)^n \dfrac{4}{n^2}\\
+        \text{e por fim, }b_n = 0 &
+    \end{split}
+\end{equation}
+
+Assim temos os coeficientes da expansão de Fourier e usando a fórmula \ref{eq:61}, temos
+
+\begin{equation}
+    \label{eq:exemplo1SF}
+    f(x) = \dfrac{2\pi^2}{3} - 4\sum\limits_{n=1}^{\infty}(-1)^n \dfrac{cos(nx)}{n^2}
+\end{equation}

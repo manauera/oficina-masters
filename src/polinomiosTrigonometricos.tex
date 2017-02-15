@@ -1,4 +1,4 @@
-\section{Polinômios trigonométricos e séries}
+\chapter{Polinômios trigonométricos e séries}
 Dado o período $T=2l$, considere os harmonicos\\
 \begin{equation}
     a_k\cos{\dfrac{\pi kx}{l}} + b_k\sin{\dfrac{\pi kx}{l}},\text{\hspace{5pt}para k = 1,2,3,...}
@@ -7,14 +7,15 @@ Dado o período $T=2l$, considere os harmonicos\\
 Com frequencia $\omega_k = k\pi/l$ e períodos $T_k = \dfrac{2\pi}{\omega_k} = \dfrac{2l}{k}$. 
 Uma vez que 
 \begin{equation}
-    T = 2l = kT_k,
+\notag
+    T = 2l = kT_k
 \end{equation}  
 \\
 \textbf{o número $T=2l$ é simultaneamente o período de todos os harmonicos},
 pois um múltiplo de um período é também um período (Sec 1). Então, toda soma na 
 forma\\
 \begin{equation}
-    s_n(n) = A + \sum\limits_{k=1}^{n}(a_k\cos{\dfrac{k\pi x}{l} + b_k\sin{\dfrac{k\pi x}{l}}})
+    s_n(n) = \mathcal{A} + \sum\limits_{k=1}^{n}(a_k\cos{\dfrac{k\pi x}{l} + b_k\sin{\dfrac{k\pi x}{l}}})
 \end{equation}
 \\
 é uma função de período $2l$, uma vez que é uma soma de funções de período 
@@ -28,22 +29,22 @@ e período $2l$).\\
 Por mais que seja a soma de vários harmonicos, um polinômio trigonométrico pode 
 ser usado para representar uma função de natureza muito mais complexa que a 
 de um harmonico. E geralmente é o caso. Escolhendo as constantes corretamente,
-podemos formar funções com gráficos bem diferentes de um simples harmonico... ?
-\textbf{[colocar algumas aplicações mais recentes que "gráficos"]}.
+podemos formar funções com gráficos bem diferentes de um simples harmonico.
 \\
-Na primeira figura \ref{period_ex}, o polínomio que representa aquele gráfico é\\
+Na primeira Figura \ref{fig:periodExp}, o polínomio que representa aquele gráfico é\\
 \begin{equation}
     y = \sin{x} + \dfrac{1}{2}\sin{2x} + \dfrac{1}{4}\sin{3x}
 \end{equation}
 \\
-Se colocar em algum software de plot de função, será idêntica à \ref{period_ex}.\\
+Facilmente verificado com algum software de plot de função.\\
 \\
+
 A \textbf{série trigonométrica infinita}\\ 
 \begin{equation}
-\label{serie_inf}
     f(x) = A + \sum\limits_{k=1}^{\infty}(a_k\cos{\dfrac{k\pi x}{l}} + b_k\sin{\dfrac{k\pi x}{l}})
+\label{eq:serie_inf}
 \end{equation}
-também representa uma função de período $2l$. As funções como \ref{serie_inf} podemos
+também representa uma função de período $2l$. As funções como \ref{eq:serie_inf} podem
 ser usadas para representar fenômenos de origem muito mais complexa que um polinomio.
 
 Sendo assim, o gráfico de uma função periódica $f(x)$ pode ser obtido através da 
@@ -53,26 +54,29 @@ Então a pergunta que fica é:\\
 \textit{Qualquer função que tenha período 2l pode ser representado por uma soma de séries 
 trigonométricas?}\\
 \\
-A resposta é sim, na realidade, é possível ser usado em grande gama classes de problemas!
-Diversos outros fenômenos podem ser ser representado por uma série trigonométrica,
-tais como......................\\ 
+A resposta é sim, e na realidade, é possível ser usado em grande quantidade de problemas!
+Diversos outros fenômenos podem ser ser representado por uma série trigonométrica.
 \\
 \\  
-Se\\
+
+\textbf{Se}
 \begin{equation}
-\label{serie_longa}
     f(x) = A + \sum\limits_{k=1}^{\infty}(a_k\cos{\dfrac{k\pi x}{l}} + b_k\sin{\dfrac{k\pi x}{l}})
+\label{eq:serieLonga}
 \end{equation}
-Então, podemos definir, por comodidade, que $\dfrac{\pi x}{l} = t$ ou que $x = \dfrac{tl}{\pi}$,
+
+\textbf{Então}, podemos definir, por comodidade, que $\dfrac{\pi x}{l} = t$ ou que $x = \dfrac{tl}{\pi}$,
 assim teremos\\
 \begin{equation}
-\label{serie_simples}
     g(t) = f(tl/\pi) = A + \sum\limits_{k=1}^{\infty}(a_k\cos{kt} + b_k\sin{kt})
+\label{eq:serieSimples}
 \end{equation}
 \\
-onde os harmonicos dessa série tenham período $2\pi$. É possível verificar que 
-se a função $f(x)$ de período $2l$ possui a expansão \ref{serie_longa}, então
-a função $g(x)$ de período $2\pi$ possui a expansão \ref{serie_simples}, e que
-o contrário é verdadeiro também. Por ser mais legível, usaremos a expansão 
-\ref{serie_simples} e ao final faremos a tradução para o mais genérico 
-\ref{serie_longa}.\\
+onde os harmonicos dessa série tenham período $2\pi$. 
+
+É possível verificar que se a função $f(x)$ de período $2l$ possui a expansão 
+\ref{eq:serieLonga}, então a função $g(x)$ de período $2\pi$ possui a expansão 
+\ref{eq:serieSimples}, e que o contrário é verdadeiro também. 
+
+Por ser mais legível, daqui em diante usaremos a expansão \ref{eq:serieSimples} 
+e ao final faremos a tradução para o mais genérico \ref{eq:serieLonga}.\\

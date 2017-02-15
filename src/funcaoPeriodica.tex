@@ -1,5 +1,5 @@
 
-\section{Funções periódicas}
+\chapter{Funções periódicas}
 
 \begin{definicao}
 \label{def1}
@@ -42,8 +42,8 @@ Na figura ~\ref{fig:periodExp}, temos uma função periódica de período $T=2\p
             color=gray, thick, dashed]
             coordinates {(1+2*3.14159,0) (1+2*3.14159,5) };
     \end{axis}  
-    \end{tikzpicture} \\
-    \caption{Na figura, $f(a) = f(a + 2\pi)$}
+    \end{tikzpicture} 
+    \caption{Observe que $f(a) = f(a + 2\pi)$}
     \label{fig:periodExp}
 \end{figure}
 
@@ -134,7 +134,7 @@ cada valor de x. Então, teremos o seguinte:
     \label{sen2x}
     \end{axis}
     \end{tikzpicture}
-    \caption{$f(x)=sen(x)+sen(2x)$}
+    \caption{Somando duas funções de mesmo período}
     \label{fig:addExp}
 \end{figure}
 
@@ -171,7 +171,7 @@ os valores $f(x)$ por $g(x)$, para todo x. Ficamos com seguinte:
     \addplot [mark=none, thick] {sin(deg(x)) * sin(deg(2*x))};
     \end{axis}
     \end{tikzpicture}
-    \caption{$f(x)=sen(x)*sen(2x)$}
+    \caption{Multiplicando funções de mesmo período}
     \label{fig:multExp}
 \end{figure}
 
@@ -189,7 +189,6 @@ período.\\
 Mais adiante, temos a seguinte propriedade de qualquer função periódica $f(x)$
 com período $T$:\\
 \begin{definicao}
-\label{def}
 Se f(x) é integrável em um intervalo de tamanho T,
 então é integrável em qualquer outro intervalo de tamanho T, e o valor da integral
 é o mesmo\\
@@ -198,6 +197,7 @@ então é integrável em qualquer outro intervalo de tamanho T, e o valor da int
     \int_a^{a+T} \! f(x) \, \mathrm{d}x = \int_b^{b+T} \! f(x) \, \mathrm{d}x.
 \end{equation}
 para qualquer a, b. \\
+\label{def:functPer}
 \end{definicao}
 
 Essa propriedade é uma consequência imediata da interpretação da integral como
@@ -205,7 +205,7 @@ Essa propriedade é uma consequência imediata da interpretação da integral co
 as ordenadas desenhadas nos limites do intervalo, onde áreas acima do eixo x
 são tidas como positivas, e áreas abaixo são tidas como negativas. No caso,
 as áreas representadas pelas duas integrais são a mesma por causa da propriedade 
-de \ref{def1}. A figura \ref{fig:int_area}, a área em \textcolor{blue}{azul} e a
+de \ref{def:functPer}. A figura \ref{fig:int_area}, a área em \textcolor{blue}{azul} e a
 área em \textcolor{red}{vermelho} representam as áreas das integrais da função
 periódica $f(x)=sen(4x)+sen(2x)$ de período $T=\pi$ para intervalos de tamanho $\pi$. 
 \\
@@ -235,9 +235,9 @@ periódica $f(x)=sen(4x)+sen(2x)$ de período $T=\pi$ para intervalos de tamanho
             soft clip={domain=4.712385:7.853975},];
     \end{axis}
     \end{tikzpicture}
-\caption{Em azul, a integral do intervalo $[0:\pi]$ e em vermelho, a área do intervalo $[\dfrac{3\pi}{2}, \dfrac{5\pi}{2}]$}
+\caption{Observe que ambas as áres são iguais}
 \label{fig:int_area}
 \end{figure}
 
-Daqui em diante, quando uma função $f(x)$ de aperíodo $T$ for integrável, então
+Daqui em diante, quando uma função $f(x)$ de período $T$ for integrável, então
 ela será integrável em qualquer intervalo de tamanho $T$.

@@ -1,10 +1,10 @@
-\section{Revisão de trigonometria}
+\chapter{Revisão de trigonometria}
 
 Um \textit{sistema básico trigonométrico} significa um sistema de funções como 
-as de \ref{51} que possuem um período $T=2\pi$\\
+as de \ref{eq:51} que possuem um período $T=2\pi$\\
 \begin{equation}
-\label{eq:51}
     1, cos(x), sen(x), cos(2x), sen(2x), ... 
+\label{eq:51}
 \end{equation}
 \\
 Com base nessas funções, vamos mostrar algumas funções que irão auxiliar mais
@@ -18,8 +18,8 @@ Para um inteiro $n \neq 0$, temos\\
     igual a zero. O mesmo vale para $g(x)=cos(x)$.
     \begin{equation}
         \begin{split}
-            \int_{0}^{2\pi}cos(nx)dx & = [\dfrac{sen(nx)}{n}]_{0}^{2\pi} = 0\\
-            \int_{0}^{2\pi}sen(nx)dx & = [\dfrac{-cos(nx)}{n}]_{0}^{2\pi} = 0
+            \int_{0}^{2\pi}cos(nx)dx & = \left[\dfrac{sen(nx)}{n}\right]_{0}^{2\pi} = 0\\
+            \int_{0}^{2\pi}sen(nx)dx & = \left[\dfrac{-cos(nx)}{n}\right]_{0}^{2\pi} = 0
         \end{split}
     \end{equation}
 \end{definicao}
@@ -84,8 +84,8 @@ Também podemos afirmar que\\
     é sempre a metade do período. O mesmo vale para $g(x)=cos(x)$.
     \begin{equation}
         \begin{split}
-            \int_{0}^{2\pi}\cos^2{nx}dx & = \int_{0}^{2\pi}\dfrac{1 + \cos{2nx}}{2} dx = \pi\\
-            \int_{0}^{2\pi}sen^2nx dx & = \int_{0}^{2\pi}\dfrac{1 - \cos{2nx}}{2} dx = \pi
+            \int_{0}^{2\pi}cos^2(nx)dx & = \int_{0}^{2\pi}\dfrac{1 + cos(2nx)}{2} dx = \pi\\
+            \int_{0}^{2\pi}sen^2(nx) dx & = \int_{0}^{2\pi}\dfrac{1 - cos(2nx)}{2} dx = \pi
         \end{split}
     \end{equation}
 \end{definicao}
@@ -143,27 +143,27 @@ Mais adiante, usando fórmulas trigonométricas conhecidas, temos\\
 \begin{equation}
 \label{eq:54}
     \begin{split}
-        \cos{\alpha}\cos{\beta} dx & = \dfrac{1}{2}[\cos{(\alpha + \beta)} + \cos{(\alpha - \beta)}]\\
-        \sin{\alpha}\sin{\beta}dx & = \dfrac{1}{2}[\cos{(\alpha - \beta)} - \cos{(\alpha + \beta)}]
+        cos(\alpha)cos(\beta) & = \dfrac{1}{2}[cos(\alpha + \beta) + cos(\alpha - \beta)]\\
+        sen(\alpha)sen(\beta) & = \dfrac{1}{2}[cos(\alpha - \beta) - cos(\alpha + \beta)]
     \end{split}
 \end{equation}
 \\
-para qualquer n, m.\\
+para qualquer $n$, $m$.\\
 \\
 Finalmente, usando a fórmula \\
 \begin{equation}
-        \sin{\alpha}\cos{\beta} dx = \dfrac{1}{2}[\sin{(\alpha + \beta)} + \sin{(\alpha - \beta)}]    
+        sen(\alpha)cos(\beta) = \dfrac{1}{2}[\sin{(\alpha + \beta)} + \sin{(\alpha - \beta)}]    
 \end{equation}
 \\
 tiramos o seguinte:\\
 \\
 \begin{definicao}
-    \label{def:55}
     A integral definida em um intervalo de tamanho $T=2\pi$ da função $f(x)=sen(nx)*cos(mx)$
     é sempre igual a zero, para qualquer n, m.
     \begin{equation}
         \int_{0}^{2\pi}\sin{nx}\cos{mx}dx = 0
     \end{equation}
+    \label{def:55}
 \end{definicao}
 
 A assim como em \ref{def:53}, fica evidente que a área do total da função 

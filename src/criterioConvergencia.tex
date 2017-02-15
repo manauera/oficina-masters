@@ -1,0 +1,133 @@
+\chapter{Um critério de convergência para a série de Fourier}
+
+Agora vamos deixar um pouco mais claro como que ficaria o critério
+de convergência para uma série de Fourier quando existe finitos
+pontos de descontinuidades em um intervalo.
+
+\begin{definicao}
+    A Série de Fourier de uma função semi-suave (contínua ou descontínua)
+    $f(x)$ de período $2\pi$ converge para todos os valores de $x$. A soma 
+    da série é igual a $f(x)$ eem todo ponto de continuidade é igual à
+    \begin{equation}
+    \notag
+        \dfrac{f(x + 0) + f(x - 0)}{2}
+    \end{equation}
+    média aritmética dos limites à esquerda e à direita, em todos os 
+    pontos de descontinuidades. 
+\end{definicao}
+
+A Figura \ref{fig:semiConv} seria um exemplo de convergência de uma função
+semi-suave descontínua. 
+
+\begin{figure}[H]
+\begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        ymin=-2,
+        ymax=3,
+        xmin=-10,
+        xmax=15,
+        ytick=\empty,
+        xtick={
+            -3.14159,
+            3.14159,
+            9.42478
+        },
+        xticklabels={
+            $-\pi$\ \ \ \ \ \ \ ,
+            $\pi$\ \ \ \ \ \ ,
+            $3\pi$\ \ \ \ \ \ 
+        }]
+    \addplot [mark=none, thick, domain=3*pi:5*pi] {sin(deg(x/2 + 2*pi)) + 0.5 };
+    \addplot [mark=none, thick, domain=pi:3*pi] {sin(deg(x/2 + pi)) + 0.5 };
+    \addplot [
+        color=gray, thick, dashed]
+        coordinates {(-pi,-0.5) (-pi,0.4) } ;
+    \addplot [
+        color=gray, thick, dashed]
+        coordinates {(-pi,0.58) (-pi,1.5) } ;
+    \addplot [mark=none, thick, domain=-pi:pi] {sin(deg(x/2)) + 0.5 };
+    \addplot [
+        color=gray, thick, dashed]
+        coordinates {(pi,-0.5) (pi,0.4) } ;
+    \addplot [
+        color=gray, thick, dashed]
+        coordinates {(pi,0.58) (pi,1.5) } ;
+    \addplot [mark=none, thick, domain=-3*pi:-pi] {sin(deg(x/2 - pi)) + 0.5 };
+    \addplot [
+        color=gray, thick, dashed]
+        coordinates {(3*pi,-0.5) (3*pi,0.4) } ;
+    \addplot [
+        color=gray, thick, dashed]
+        coordinates {(3*pi,0.58) (3*pi,1.5) } ;
+
+\addplot[
+    scatter,
+    only marks,
+    point meta=explicit symbolic,
+    scatter/classes={
+        a={mark=o}},
+    ]
+    table[meta=label] {
+        x y label
+        -3.14159 0.5 a
+        3.14159 0.5 a
+        9.42478 0.5 a
+    };
+    \end{axis}
+    \end{tikzpicture}
+\end{center}
+\caption{A convergência de uma função semi-suave descontínua}
+\label{fig:semiConv}
+\end{figure}
+
+\begin{definicao}
+    Se $f(x)$ é contínuo em todos os pontos, então a série converge 
+    absoluta e uniformemente.
+\end{definicao}
+
+Suponha que a função $f(x)$ é definida apenas no intervalo $[-\pi, \pi]$,
+e é semi-suave nesse intervalo e contínuo nas extremidades. Como 
+mencionado anteriormente na seção 7, a série de Fourier de $f(x)$ coincide
+com a série de Fourier da função na qual é a extensão periódica de $f(x)$
+em todo eixo-x. Mas nesse caso, tal expansão obviamente levaria a uma função 
+$f(x)$ que seria semi-suave em todo eixo-x. Pontanto, o critário que 
+formulado implica que a série de Fourier de $f(x)$ irá convergir em 
+todos os pontos. Particularmente, para $-\pi < x < \pi$, a série 
+irá convergir para $f(x)$ em pontos de continuidade e terá valor de
+\begin{equation}
+\notag
+    \dfrac{f(x + 0) + f(x - 0)}{2}
+\end{equation}
+nos pontos de descontinuidades. Mas o que acontecerá para extremidades
+no intervalo $[-\pi, \pi]$?
+
+Nesse caso, dois casos são possíveis:
+\begin{enumerate}
+    \item $f(-\pi) = f(\pi)$. Então, a extensão periódica obviamente
+    resultará em uma função na qual é contínua nos pontos onde $x = (2k + 1)\pi$
+    para $k \in \mathbb{N}$. Daí, pelo critério, a série de Fourier irá
+    convergir para $f(x)$ nas extremidades de $[-\pi,\pi]$.
+
+    \item  $f(-\pi)\neq f(\pi)$. Neste caso, a extensão periódica 
+    resulta em uma função que é descontínua nos pontos onde $x = (2k + 1)\pi$
+    para $k \in \mathbb{N}$. Daí teremos
+    \begin{equation}
+    \notag
+        \begin{split}
+            f(-\pi - 0) = f(\pi)\text{,   } & f(-\pi + 0) = f(-\pi) \\
+            f(\pi + 0) = f(-\pi)\text{,   } & f(\pi - 0) = f(\pi)             
+        \end{split}
+    \end{equation}
+    Disso ficamos com
+    \begin{equation}
+    \notag
+        \begin{rcases}
+            \dfrac{f(-\pi + 0) + f(-\pi - 0)}{2}, \\
+            \dfrac{f(\pi + 0) + f(\pi - 0)}{2}
+        \end{rcases}
+        =\dfrac{f(\pi) + f(-\pi)}{2}
+    \end{equation}
+\end{enumerate}
+

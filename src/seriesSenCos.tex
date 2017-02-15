@@ -1,0 +1,58 @@
+\chapter{Séries de senos e cossenos}
+
+    Seja $f(x)$ uma função \textbf{par} definida no intervalo $[-\pi,\pi]$, ou então
+    uma função periódica.\\
+    
+    A função $h(x) = cos(nx)$, para $n \in \mathbb{N}$, é uma 
+    função par, então pela definição \ref{def:opPar}, a função $g(x) = f(x)cos(nx)$ 
+    também é par.\\
+    
+    Por outro lado, a função $h(x) = sen(nx)$, para $n \in \mathbb{N}^*$,
+    é ímpar, e assim, a função $g(x) = f(x)sen(nx)$ é também ímpar pela definição 
+    \ref{def:opPar}.\\
+
+    Portanto, usando as funções \ref{eq:65}, \ref{eq:intPar} e \ref{eq:intImpar}, temos 
+    que os coeficientes de Fourier da função \textbf{par} $g(x)$ são:
+
+    \begin{equation}
+    \label{eq:121}
+        \begin{split}
+            a_n = &\dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(nx) dx = \dfrac{2}{\pi}\int_{0}^{\pi} f(x)cos(nx) dx \\
+            b_n = &\dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)sen(nx) dx = 0
+        \end{split}
+    \end{equation}
+
+    Com isso, podemos afirmar que a série de Fourier de funções pares contém apenas $cossenos$, i.e.
+
+    \begin{equation}
+        f(x) ~ \dfrac{a_0}{2} + \sum\limits_{n=1}^{\infty}a_n cos(nx),
+    \end{equation}
+
+    onde os coeficientes $a_n$ são dados pela fórmula \ref{eq:121}.\\
+
+    Agora, considere outra situação. A mesma função $f(x)$ agora é uma função \textbf{ímpar}.\\
+
+    Sendo assim, como a função $h(x) = cos(nx)$ é uma função par, a função $g(x) = f(x)cos(nx)$
+    é uma função ímpar, pela definição \ref{def:opPar}.\\
+    
+    Por outro lado, sendo $h(x) = sen(nx)$ uma função ímpar, a função $g(x) = f(x)sen(nx)$ é par, pela mesma 
+    definição \ref{def:opPar}.\\
+    
+    Portanto, usando as funções \ref{eq:65}, \ref{eq:intPar} e \ref{eq:intImpar}, temos 
+    que os coeficientes de Fourier da função \textbf{ímpar} $g(x)$ são:
+
+    \begin{equation}
+    \label{eq:122}
+        \begin{split}
+            a_n = &\dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(nx) dx = 0 \\
+            b_n = &\dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)sen(nx) dx = \dfrac{2}{\pi}\int_{0}^{\pi} f(x)cos(nx) dx 
+        \end{split}
+    \end{equation}
+
+    Com isso, podemos afirmar que a série de Fourier de funções ímpares contém apenas $senos$, i.e.
+
+    \begin{equation}
+        f(x) ~ \sum\limits_{n=1}^{\infty}b_n sen(nx),
+    \end{equation}
+
+    onde os coeficientes $b_n$ são dados pela fórmula \ref{eq:122}.

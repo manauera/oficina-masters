@@ -1,0 +1,166 @@
+\chapter{Funções par e ímpar}
+
+Seja uma função $f(x)$, definida em um intervalo ou em todo eixo-x, 
+tal que ela seja simétrica em relação a origem das coordenadas.
+\\
+
+\begin{definicao}
+\label{def:funcPar}
+    Dizemos que uma função é \textit{par}, tal que 
+    \begin{equation}
+    \notag
+        f(-x) = f(x)
+    \end{equation} 
+    para todo x.    
+\end{definicao}
+
+Por exemplo, a função $f(x) = cos(x)$ é uma função par
+
+\begin{figure}[H]
+\begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-2*pi,
+        xmax=2*pi,
+        width=10cm,
+        ticks=none]
+    \addplot [mark=none, thick, domain=-(2*pi)+0.5:(2*pi)-0.5] {sin(deg(x+pi/2))};
+    \label{senoide}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Uma função par}
+    \label{fig:funcPar}
+\end{center}
+\end{figure}
+ou seja, uma função par é qualquer função que seja simétrica em 
+relação ao eixo-y
+\\
+
+Portanto, se interpretarmos a integral como sendo uma área, temos
+
+\begin{equation}
+\label{eq:intPar}
+    \int_{-l}^{l} f(x)dx = 2\int_{0}^{l} f(x)dx
+\end{equation}
+
+para qualquer $l$, dado que $f(x)$ é integrável nesse intervalo.
+
+Vale ressaltar que a equação \ref{eq:intPar} é derivada da definição \ref{def:funcPar}.
+No exemplo ilustrado na Figura \ref{fig:funcPar}, a integral $\int_{0}^{l} f(x)dx = 0$,
+porém existem outras funções como por exemplo $f(x) = cos^2(x)$, que é uma função par
+e sua integral não é zero.
+
+\begin{definicao}
+\label{def:funcImpar}
+    Dizemos que uma função é \textit{ímpar}, tal que 
+    \begin{equation}
+    \notag
+        f(-x) = - f(x)
+    \end{equation} 
+    para todo x.    
+\end{definicao}
+
+Como exemplo de uma função ímpar, temos a própria senóide
+\begin{figure}[H]
+\begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-2*pi,
+        xmax=2*pi,
+        width=10cm,
+        ticks=none]
+    \addplot [mark=none, thick, domain=-(2*pi)+0.5:(2*pi)-0.5] {sin(deg(x))};
+    \label{senoide}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Uma função ímpar}
+    \label{fig:funcImpar}
+\end{center}
+\end{figure}
+
+Para a função ímpar, sua integral em um intervalo $[-l,l]$ é
+
+\begin{equation}
+\label{eq:intImpar}
+    \int_{-l}^{l} f(x)dx = 0
+\end{equation}
+
+Sendo assim, podemos definir as seguintes propriedades \\
+\begin{definicao}
+\label{def:opPar}
+    \begin{enumerate}
+        \item[(a)] O produto de duas funções pares ou duas funções ímpares 
+        é uma função par;
+        \item[(b)] O produto entre uma função ímpar e uma função par é uma 
+        função ímpar;
+    \end{enumerate}
+\end{definicao}
+
+Para $(a)$, podemos verificar com as funções $f(x) = sen(x) *  sen(2x)$ e 
+$g(x) = cos(x) * cos(2x)$.
+
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-2*pi,
+        xmax=2*pi,
+        ymin=-3,
+        ymax=3,
+        width=7cm,
+        ticks=none]
+    \addplot [mark=none, thick, domain=-(2*pi)+0.5:(2*pi)-0.5] {sin(deg(x)) * sin(deg(2*x))};
+    \label{senoide}
+    \end{axis}
+    \end{tikzpicture}
+  \caption{Gráfico de $f(x)$}
+  \label{fig:multImpar}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-2*pi,
+        xmax=2*pi,
+        ymin=-3,
+        ymax=3,
+        width=7cm,
+        ticks=none]
+    \addplot [mark=none, thick, domain=-(2*pi)+0.5:(2*pi)-0.5] {sin(deg(x+pi/2)) * sin(deg(2*x+pi/2))};
+    \label{senoide}
+    \end{axis}
+    \end{tikzpicture}
+  \caption{Gráfico de $g(x)$}
+  \label{fig:multPar}
+\end{subfigure}
+\label{fig:multFunc}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-2*pi,
+        xmax=2*pi,
+        ymin=-3,
+        ymax=3,
+        width=7cm,
+        ticks=none]
+    \addplot [mark=none, thick, domain=-(2*pi)+0.5:(2*pi)-0.5] {sin(deg(x)) * sin(deg(2*x+pi/2))};
+    \label{senoide}
+    \end{axis}
+    \end{tikzpicture}
+  \caption{Gráfico de $h(x)$}
+  \label{fig:multImparPar}
+\end{figure}
+
+
