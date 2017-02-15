@@ -1,7 +1,9 @@
 \chapter{Exemplos de expansões em séries de Fourier}
 \section*{Exemplo 1}
-Expandir a função $f(x) = x^2$ definida no intervalo $-\pi < x < \pi$ em 
-Série de Fourier. A Figura \ref{fig:functIntRepEx} abaixo representa a função
+\textit{Expandir a função }$f(x) = x^2$\textit{ definida no intervalo }$-\pi < x < \pi$\textit{ em 
+Série de Fourier.}\\
+
+A Figura \ref{fig:functIntRepEx} abaixo representa a função
 junto com sua extensão periódica ao longo do eixo-x. A função extendida
 é contínua e semi-suave. Portanto, pelo critério de convergência do Cap. 10,
 a série de Fourier de $f(x) = x^2$ converge em todo intervalo $[-\pi,\pi]$, e
@@ -72,5 +74,74 @@ Assim temos os coeficientes da expansão de Fourier e usando a fórmula \ref{eq:
 
 \begin{equation}
     \label{eq:exemplo1SF}
-    f(x) = \dfrac{2\pi^2}{3} - 4\sum\limits_{n=1}^{\infty}(-1)^n \dfrac{cos(nx)}{n^2}
+    x^2 = \dfrac{2\pi^2}{3} - 4\sum\limits_{n=1}^{\infty}(-1)^n \dfrac{cos(nx)}{n^2}
+\end{equation}
+
+\section*{Exemplo 2}
+\textit{Expandir }$f(x) = |x|$\textit{, para }$-\pi < x < \pi$\textit{ em uma série de Fourier.}\\
+
+A função $f(x)$ é par; a Figura \ref{fig:exemplo2} representa o gráfico da função 
+expandida para todo eixo-x. A extensão periódica é contínua e semi-suave, então o critério
+do Cap. 10 é aplicável. Portanto, sua série de Fourier converge para $f(x) = |x|$ em 
+todo intervalo $[-\pi,\pi]$ e em sua extensão periódica, converge para todo o eixo-x.
+Além disso, a convergência é absoluta e uniforme.
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-pi,
+        ymin=-1,
+        ymax=4,
+        ytick style={draw=none},
+        yticklabels={},
+        xtick={
+            -3.14159,
+            3.14159,
+            9.42478
+        },
+        xticklabels={
+            $-\pi$,
+            $\pi$, $3\pi$
+        }]
+        \addplot[name path=A, mark=none, thick, domain=-pi:pi] {abs(x)};
+        \addplot[name path=B, mark=none, thick, domain=pi:3*pi] {abs(x-2*pi)};
+        \addplot[name path=C, mark=none, thick, domain=3*pi:5*pi] {abs(x-4*pi)};
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(-pi,0) (-pi,pi) } ;
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(pi,0) (pi,pi) } ;
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(3*pi,0) (3*pi,pi) };
+    \end{axis}
+    \end{tikzpicture} 
+
+    \caption{A mesma função expandida para todo eixo-x}
+    \label{fig:exemplo2}
+\end{figure}
+
+Uma vez que $|x| = x$ para $x \geq 0$, temos
+\begin{equation}
+\notag
+\label{eq:exemplo2SF}
+    \begin{split}
+        \text{O primeiro coeficiente}&\\
+        a_0 &= \dfrac{2}{\pi}\int_0^{\pi}x cos(nx)dx = \dfrac{2}{\pi} \left[\dfrac{x^2}{2}\right]_{x=0}^{x=\pi} = \pi\\
+        \text{Então o n-ésimo coeficiente}&\\
+        a_n &= \dfrac{2}{\pi}\int_{0}^{\pi}x cos(nx)dx\\
+        &= \dfrac{2}{\pi}\left[\left(\dfrac{x sen(nx)}{n}\right)_{x=0}^{x=\pi} - \int_{0}^{\pi}\dfrac{sen(nx)}{n}dx\right]\\
+        &= -\dfrac{2}{\pi n}\int_{0}^{\pi}sen(nx)dx\\
+        &= \dfrac{2}{\pi n^2}[cons(nx)]_{x=0}^{x=\pi}\\
+        &= \dfrac{2}{\pi n^2}[(-1)^n - 1]\\
+        \text{Como é uma função par}&\\
+        b_n &= 0
+    \end{split}
+\end{equation}
+
+Com os coeficientes, a série de Fourier da função $f(x) = |x|$ é
+\begin{equation}
+    |x| = \dfrac{\pi}{2} - \dfrac{2}{\pi}\sum\limits_{n=1}^{\infty} \dfrac{[(-1)^n - 1]cos(nx)}{n^2}
 \end{equation}
