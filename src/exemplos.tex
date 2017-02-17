@@ -43,7 +43,7 @@ também na sua extensão periódica fora desse intervalo. Além disso, a converg
     \end{axis}
     \end{tikzpicture} 
 
-    \caption{A mesma função expandida para todo eixo-x}
+    \caption{A função $f(x) = x^2$ expandida para todo eixo-x}
     \label{fig:functIntRepEx}
 \end{figure}
 
@@ -119,7 +119,7 @@ Além disso, a convergência é absoluta e uniforme.
     \end{axis}
     \end{tikzpicture} 
 
-    \caption{A mesma função expandida para todo eixo-x}
+    \caption{A função $f(x) = |x|$ expandida para todo eixo-x}
     \label{fig:exemplo2}
 \end{figure}
 
@@ -144,4 +144,62 @@ Uma vez que $|x| = x$ para $x \geq 0$, temos
 Com os coeficientes, a série de Fourier da função $f(x) = |x|$ é
 \begin{equation}
     |x| = \dfrac{\pi}{2} - \dfrac{2}{\pi}\sum\limits_{n=1}^{\infty} \dfrac{[(-1)^n - 1]cos(nx)}{n^2}
+\end{equation}
+
+\section*{Exemplo 3}
+\textit{Expandir a função }$f(x) = |sen(x)|$\textit{ em uma série de Fourier.}\\
+
+Essa função é definida para todo x, e representa uma função contínua, semi-suave e par. 
+A Figura \ref{fig:exemplo3} representa o gráfico da função. O critério do Cap. 10 é 
+aplicável, e portanto $f(x) = |sen(x)|$ é em todo lugar igual a sua série de Fourier,
+que é absoluta e uniformemente convergente.
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-pi,
+        ymin=-1,
+        ymax=4,
+        ytick style={draw=none},
+        yticklabels={},
+        xtick={
+            -3.14159,
+            3.14159,
+            9.42478
+        },
+        xticklabels={
+            $-\pi$,
+            $\pi$, $3\pi$
+        }]
+        \addplot[name path=A, mark=none, thick, domain=-pi:5*pi] {abs(sin(deg(x)))};
+    \end{axis}
+    \end{tikzpicture} 
+
+    \caption{A função $f(x) = |sen(x)|$}
+    \label{fig:exemplo3}
+\end{figure}
+
+Como $|sen(x)| = sen(x)$ para $0 \leq x \leq \pi$, então
+\begin{equation}
+    \notag
+    \label{eq:exemplo3}
+    \begin{split}
+        a_0 &= \dfrac{2}{\pi} \int_{0}^{\pi}sen(x)dx = \dfrac{4}{\pi}\\
+        \text{e}&\\
+        a_n &= \dfrac{2}{\pi}\int_{0}^{\pi}sen(x)cos(nx)dx\\
+        &= \dfrac{2}{\pi}\int_{0}^{\pi}[sen(n + 1)x - sen(n - 1)x]dx\\
+        &= -\dfrac{1}{\pi}\left[\dfrac{cos(n+1)x}{n+1} - \dfrac{cos(n - 1)x}{n - 1}\right]_{x=0}^{x=\pi}\\
+        &= -\dfrac{1}{\pi}\left[\dfrac{(-1)^{n+1}-1}{n+1} - \dfrac{(-1)^{n-1}-1}{n - 1}\right]\\
+        &= -2\dfrac{(-1)^n + 1}{\pi(n^2 -1)}\\
+        \text{para }n \neq 1\text{, para }n=1 &\\
+        a_1 &= \dfrac{2}{\pi}\int_{0}^{\pi}sen(x)cos(x)dx =\dfrac{1}{\pi}\int_{0}^{\pi}sen(2x)dx = 0\\
+        \text{como é uma função par, temos}&\\
+        b_n &= 0
+    \end{split} 
+\end{equation}
+
+Assim, como $a_1 = 0$ temos a série de Fourier correspondente à função $f(x)$
+\begin{equation}
+    |sen(x)| = \dfrac{2}{\pi} - \dfrac{4}{\pi}\sum\limits_{n=2}^{\infty}\dfrac{(-1)^n + 1)cos(nx)}{n^2 - 1}
 \end{equation}
