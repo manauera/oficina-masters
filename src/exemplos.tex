@@ -3,7 +3,7 @@
 \textit{Expandir a função }$f(x) = x^2$\textit{ definida no intervalo }$-\pi < x < \pi$\textit{ em 
 Série de Fourier.}\\
 
-A Figura \ref{fig:functIntRepEx} abaixo representa a função
+A Figura \ref{fig:exemplo1} abaixo representa a função
 junto com sua extensão periódica ao longo do eixo-x. A função extendida
 é contínua e semi-suave. Portanto, pelo critério de convergência do Cap. 10,
 a série de Fourier de $f(x) = x^2$ converge em todo intervalo $[-\pi,\pi]$, e
@@ -44,14 +44,13 @@ também na sua extensão periódica fora desse intervalo. Além disso, a converg
     \end{tikzpicture} 
 
     \caption{A função $f(x) = x^2$ expandida para todo eixo-x}
-    \label{fig:functIntRepEx}
+    \label{fig:exemplo1}
 \end{figure}
 
 Como a função $f(x)$ é par, não precisamos obter o coeficiente $b_n$ como mostrado 
 no capítulo anterior, assim, temos
 \begin{equation}
 \notag
-\label{eq:exemplo1}
     \begin{split}
         a_0 &= \dfrac{2}{\pi} \int\limits_{0}^{\pi}x^2 dx = \dfrac{2}{\pi}\left[\dfrac{x^3}{2}\right]_{x=0}^{x=\pi} = \dfrac{2\pi^2}{3}\\
         \text{Adiante, temos o }a_n &\\
@@ -73,9 +72,10 @@ no capítulo anterior, assim, temos
 Assim temos os coeficientes da expansão de Fourier e usando a fórmula \ref{eq:61}, temos
 
 \begin{equation}
-    \label{eq:exemplo1SF}
-    x^2 = \dfrac{2\pi^2}{3} - 4\sum\limits_{n=1}^{\infty}(-1)^n \dfrac{cos(nx)}{n^2}
+\label{eq:exemplo1SF}
+    x^2 = \dfrac{\pi^2}{3} - 4\sum\limits_{n=1}^{\infty}(-1)^n \dfrac{cos(nx)}{n^2}
 \end{equation}
+para o intervalo $ -\pi < x < \pi$.
 
 \section*{Exemplo 2}
 \textit{Expandir }$f(x) = |x|$\textit{, para }$-\pi < x < \pi$\textit{ em uma série de Fourier.}\\
@@ -126,7 +126,6 @@ Além disso, a convergência é absoluta e uniforme.
 Uma vez que $|x| = x$ para $x \geq 0$, temos
 \begin{equation}
 \notag
-\label{eq:exemplo2SF}
     \begin{split}
         \text{O primeiro coeficiente}&\\
         a_0 &= \dfrac{2}{\pi}\int_0^{\pi}x cos(nx)dx = \dfrac{2}{\pi} \left[\dfrac{x^2}{2}\right]_{x=0}^{x=\pi} = \pi\\
@@ -143,8 +142,10 @@ Uma vez que $|x| = x$ para $x \geq 0$, temos
 
 Assim temos os coeficientes da expansão de Fourier e usando a fórmula \ref{eq:61}, temos
 \begin{equation}
+\label{eq:exemplo2SF}
     |x| = \dfrac{\pi}{2} - \dfrac{2}{\pi}\sum\limits_{n=1}^{\infty} \dfrac{[(-1)^n - 1]cos(nx)}{n^2}
 \end{equation}
+para o intervalo $ -\pi < x < \pi$.
 
 \section*{Exemplo 3}
 \textit{Expandir a função }$f(x) = |sen(x)|$\textit{ em uma série de Fourier.}\\
@@ -183,7 +184,6 @@ que é absoluta e uniformemente convergente.
 Como $|sen(x)| = sen(x)$ para $0 \leq x \leq \pi$, então
 \begin{equation}
     \notag
-    \label{eq:exemplo3}
     \begin{split}
         a_0 &= \dfrac{2}{\pi} \int_{0}^{\pi}sen(x)dx = \dfrac{4}{\pi}\\
         \text{e}&\\
@@ -201,6 +201,7 @@ Como $|sen(x)| = sen(x)$ para $0 \leq x \leq \pi$, então
 
 Assim temos os coeficientes da expansão de Fourier e usando a fórmula \ref{eq:61}, temos
 \begin{equation}
+\label{eq:exemplo3SF}
     |sen(x)| = \dfrac{2}{\pi} - \dfrac{4}{\pi}\sum\limits_{n=2}^{\infty}\dfrac{(-1)^n + 1)cos(nx)}{n^2 - 1}
 \end{equation}
 
@@ -242,6 +243,28 @@ de Fourier de $f(x)$ converge para 0 nos pontos de descontinuidade.
         \addplot [name path=border,
                 color=gray, thick, dashed]
                 coordinates {(3*pi,-pi) (3*pi,pi) };
+                                color=gray, thick, dashed]
+                coordinates {(3*pi,-1) (3*pi,1) };
+                        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(8*pi,0) (8*pi,2*pi) } ;
+                        \addplot[
+            scatter,
+            only marks,
+            point meta=explicit symbolic,
+            color=white,
+            scatter/classes={
+                b={mark=o, draw=black}},
+            ]
+            table[meta=label] {
+                x y label
+                -3.14159 0 a
+                3.14159 0 a
+                9.42478 0 a
+                -3.14159 0 b
+                3.14159 0 b
+                9.42478 0 b
+            };
     \end{axis}
     \end{tikzpicture} 
 
@@ -252,7 +275,6 @@ de Fourier de $f(x)$ converge para 0 nos pontos de descontinuidade.
 Como $f(x)$ é ímpar, temos
 \begin{equation}
     \notag
-    \label{eq:exemplo4}
     \begin{split}
         a_n &= 0\\
         \text{e então}&\\
@@ -265,8 +287,11 @@ Como $f(x)$ é ímpar, temos
 
 Assim temos os coeficientes da expansão de Fourier e usando a fórmula \ref{eq:61}, temos
 \begin{equation}
-    x = 2\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n + 1})sen(nx)}{n}
+\label{eq:exemplo4SF}
+    x = 2\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n + 1}sen(nx)}{n}
 \end{equation}
+para o intervalo $ -\pi < x < \pi$.
+
 
 \section*{Exemplo 5}
 \textit{Expandir }$f(x) = 1$\textit{, para }$0 < x < \pi$\textit{ em série de senos.}\\
@@ -301,6 +326,7 @@ $x = kx$ para $x = 0, \pm 1, \pm 2, \ldots$.
         \addplot[name path=C, mark=none, thick, domain=pi:2*pi] {-1};
         \addplot[name path=D, mark=none, thick, domain=2*pi:3*pi] {1};
         \addplot[name path=E, mark=none, thick, domain=3*pi:4*pi] {-1};
+        \addplot[name path=E, mark=none, thick, domain=4*pi:5*pi] {1};
         \addplot [name path=border,
                 color=gray, thick, dashed]
                 coordinates {(-pi,-1) (-pi,1) } ;
@@ -313,6 +339,30 @@ $x = kx$ para $x = 0, \pm 1, \pm 2, \ldots$.
         \addplot [name path=border,
                 color=gray, thick, dashed]
                 coordinates {(3*pi,-1) (3*pi,1) };
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(4*pi,-1) (4*pi,1) } ;
+        \addplot[
+            scatter,
+            only marks,
+            point meta=explicit symbolic,
+            color=white,
+            scatter/classes={
+                b={mark=o, draw=black}},
+            ]
+            table[meta=label] {
+                x y label
+                -3.14159 0 a
+                3.14159 0 a
+                6.28318 0 a
+                9.42478 0 a
+                12.56638 0 a
+                -3.14159 0 b
+                3.14159 0 b
+                6.28318 0 b
+                9.42478 0 b
+                12.56638 0 b
+            };
     \end{axis}
     \end{tikzpicture} 
 
@@ -322,7 +372,6 @@ $x = kx$ para $x = 0, \pm 1, \pm 2, \ldots$.
 
 \begin{equation}
     \notag
-    \label{eq:exemplo5}
     \begin{split}
         a_n &= 0\\
         \text{e então}&\\
@@ -334,6 +383,7 @@ $x = kx$ para $x = 0, \pm 1, \pm 2, \ldots$.
 
 Assim temos os coeficientes da expansão de Fourier e usando a fórmula \ref{eq:61}, temos
 \begin{equation}
+\label{eq:exemplo5SF}
     1 = \dfrac{2}{\pi}\sum\limits_{n=1}^{\infty}\dfrac{[1 - (-1)^n]}{n}
 \end{equation}
 para o intervalo $0 < x < \pi$.
@@ -382,6 +432,23 @@ do limites à esquerda e à direita, i.e., para $\pi$, neste caso, a função n�
         \addplot [name path=border,
                 color=gray, thick, dashed]
                 coordinates {(8*pi,0) (8*pi,2*pi) } ;
+                        \addplot[
+            scatter,
+            only marks,
+            point meta=explicit symbolic,
+            color=white,
+            scatter/classes={
+                b={mark=o, draw=black}},
+            ]
+            table[meta=label] {
+                x y label
+                6.28318 3.14159 a
+                12.56638 3.14159 a
+                18.84954 3.14159 a
+                6.28318 3.14159 b
+                12.56638 3.14159 b
+                18.84954 3.14159 b
+            };
     \end{axis}
     \end{tikzpicture} 
 
@@ -389,3 +456,200 @@ do limites à esquerda e à direita, i.e., para $\pi$, neste caso, a função n�
     \label{fig:exemplo6}
 \end{figure}
 
+\begin{equation}
+    \notag
+    \begin{split}
+        a_0 &= \dfrac{2}{2\pi} \int_{0}^{2\pi}x dx = \dfrac{1}{\pi}\left[\dfrac{x^2}{2}\right]_{x=0}^{x=2\pi}=2\pi\\
+        \text{e}&\\
+        a_n &= \dfrac{1}{\pi}\int_{0}^{2\pi}x cos(nx)dx\\
+        &= \dfrac{1}{\pi n}[x sen(nx)]_{x=0}^{x=2\pi} - \dfrac{1}{\pi n}\int_{0}^{2\pi}sen(nx)dx = 0\\
+        b_n &= \dfrac{1}{\pi}\int_{0}^{2\pi}x sen(nx)dx\\
+        &= - \dfrac{1}{\pi n}[x cos(nx)]_{x=0}^{x=2\pi} + \dfrac{1}{\pi n}\int_{0}^{2\pi}cos(nx)dx = -\dfrac{2}{n}
+    \end{split} 
+\end{equation}
+
+Assim temos os coeficientes da expansão de Fourier e usando a fórmula \ref{eq:61}, temos
+\begin{equation}
+\label{eq:exemplo6SF}
+    x = \pi - 2\sum\limits_{n=1}^{\infty}\dfrac{sen(nx)}{n}
+\end{equation}
+para o intervalo $0 < x < 2\pi$.
+
+\section*{Exemplo 7}
+\textit{Expandir }$f(x) = x^2$\textit{, para }$0 < x < 2\pi$\textit{ em série de Fourier.}\\
+
+Como no exemplo 1, porém em um intervalo diferente, a Figura \ref{fig:exemplo7} representa a 
+extensão periódica de $f(x)$. O critério de convergência do Cap. 10 é aplicável, e nos pontos 
+de descontinuidade a série converge para a média dos limites à esquerda e à direita, i.e., 
+para $x = 2\pi^2$. Neste caso, a função não é par, nem ímpar.
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-1,
+        xmax=25,
+        ymin=-3,
+        ymax=40,
+        ytick style={draw=none},
+        yticklabels={},
+        xtick={
+            6.28318,
+            12.56638,
+            18.84954
+        },
+        xticklabels={
+            $2\pi$,
+            $4\pi$, $6\pi$
+        }]
+        \addplot[name path=A, mark=none, thick, domain=0:2*pi] {x^2};
+        \addplot[name path=B, mark=none, thick, domain=2*pi:4*pi] {x^2 - 4*pi*x + 39.5};
+        \addplot[name path=C, mark=none, thick, domain=4*pi:6*pi] {x^2 - 8*pi*x + 157.9};
+        \addplot[name path=D, mark=none, thick, domain=6*pi:8*pi] {x^2 - 12*pi*x + 355.3};
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(2*pi,0) (2*pi,4*pi*pi) } ;
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(4*pi,0) (4*pi,4*pi*pi) } ;
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(6*pi,0) (6*pi,4*pi*pi) };
+        \addplot[
+            scatter,
+            only marks,
+            point meta=explicit symbolic,
+            color=white,
+            scatter/classes={
+                b={mark=o, draw=black}},
+            ]
+            table[meta=label] {
+                x y label
+                6.28318 19.73917 a
+                12.56638 19.73917 a
+                18.84954 19.73917 a
+                6.28318 19.73917 b
+                12.56638 19.73917 b
+                18.84954 19.73917 b
+            };
+    \end{axis}
+    \end{tikzpicture} 
+
+    \caption{A função $f(x) = x^2$ expandida para todo eixo-x}
+    \label{fig:exemplo7}
+\end{figure}
+
+
+\begin{equation}
+    \notag
+    \begin{split}
+        a_0 &= \dfrac{2}{2\pi} \int_{0}^{2\pi}x^2 dx = \dfrac{1}{\pi}\left[\dfrac{x^3}{3}\right]_{x=0}^{x=2\pi}=\dfrac{8\pi^2}{3}\\
+        \text{e}&\\
+        a_n &= \dfrac{1}{\pi}\int_{0}^{2\pi}x^2 cos(nx)dx\\
+        &= - \dfrac{2}{\pi n}\int_{0}^{2\pi}x^2 sen(nx)dx\\
+        &= \dfrac{2}{\pi n}[x cos(nx)]_{x=0}^{x=2\pi} - \dfrac{2}{\pi n^2}\int_{0}^{2\pi}cos(nx)dx = \dfrac{4}{n^2}\\
+        b_n &= \dfrac{1}{\pi}\int_{0}^{2\pi}x^2 sen(nx)dx\\
+        &= - \dfrac{1}{\pi n}[x cos(nx)]_{x=0}^{x=2\pi} + \dfrac{2}{\pi n}\int_{0}^{2\pi}x cos(nx)dx\\
+        &= - \dfrac{4\pi}{n} - \dfrac{2}{\pi n^2} \int_{0}^{2\pi}sen(nx)dx = - \dfrac{4\pi}{n}
+    \end{split} 
+\end{equation}
+
+Assim temos os coeficientes da expansão de Fourier e usando a fórmula \ref{eq:61}, temos
+\begin{equation}
+\label{eq:exemplo7SF}
+    x^2 = \dfrac{4\pi^2}{3} - 4\sum\limits_{n=1}^{\infty}\dfrac{cos(nx)}{n^2} - 4\sum\limits_{n=1}^{\infty}\dfrac{sen(nx)}{n}
+\end{equation}
+para o intervalo $0 < x < 2\pi$.
+
+\section*{Exemplo 8}
+
+\textit{Expandir }$f(x) = Ax^2 + Bx + C$\textit{, para }$-\pi < x < \pi$\textit{ em série de Fourier, onde A, B e C
+são constantes.}\\
+
+O gráfico de $f(x)$ é um parábola. Pela extensão periódica, podemos obter uma função contínua ou descontínua 
+dependendo da escolha das constantes A, B e C. 
+
+Podemos calcular os coeficientes de Fourier a partir das fórmulas que foram dadas, mas não 
+é necessário. É possível utilizar as expansões das funções $x^2$ e $x$ ($-\pi < x < \pi$), 
+dos exemplos 1 e 4, fica assim
+
+\begin{equation}
+\notag
+    Ax^2 + Bx + C = \dfrac{A\pi^2}{3} + C + 4A\sum\limits_{n=1}^{\infty}(-1)^n \dfrac{cos(nx)}{n^2} - \sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n + 1}sen(nx)}{n}
+\end{equation}
+para o intervalo $ -\pi < x < \pi$.
+
+
+\section*{Exemplo 9}
+\textit{Expandir }$f(x) = Ax^2 + Bx + C$\textit{, para }$0 < x < 2\pi$\textit{ em série de Fourier, onde A, B e C
+são constantes.}\\
+
+Assim como no exemplo anterior, podemos utilizar os exemplos 6 e 7 para obter a série de Fourier 
+de $f(x)$, fica assim
+
+\begin{equation}
+\notag
+    Ax^2 + Bx + C = \dfrac{4A\pi^2}{3} + B\pi + C - 4A\sum\limits_{n=1}^{\infty}\dfrac{cos(nx)}{n^2} - (4\pi A - 2B)\sum\limits_{n=1}^{\infty}\dfrac{sen(nx)}{n}
+\end{equation}
+para o intervalo $0 < x < 2\pi$.
+
+\section*{Inferências}
+
+É possível utilizar os exemplos deste capítulo para calcular a soma de algumas séries trigonométricas 
+importantes. Por exemplo, \ref{eq:exemplo5SF} nos dá imediatamente
+\begin{equation}
+\label{eq:137}
+    \sum\limits_{n=1}^{\infty}\dfrac{sen(nx)}{n} = \dfrac{\pi - x}{2}\text{ }(0 < x < 2\pi)
+\end{equation}
+e a partir de \ref{eq:exemplo5SF} e \ref{eq:exemplo6SF}, temos
+\begin{equation}
+\label{eq:138}
+    \sum\limits_{n=1}^{\infty}\dfrac{cos(nx)}{n^2} = \dfrac{3x^2 - 6\pi x + 2\pi^2}{12}\text{ }(0 < x < 2\pi)
+\end{equation}
+
+Uma vez que os termos da série na esquerda não excede o valor $1/n^2$ em valor absoluto, a série é
+uniformemente convergente, o que significa que a soma é contínua para todo $x$ (Cap. 4). Portanto,
+\ref{eq:138} é válido para $0 \leq x \leq 2\pi$, e não só $0 < x < 2\pi$.
+
+De forma semelhante, \ref{eq:exemplo3SF} nos dá
+\begin{equation}
+    \label{eq:139}
+    \sum\limits_{n=1}^{\infty}(-1)^{n+1}\dfrac{sen(nx)}{n} = \dfrac{x}{2}\text{ }(-\pi < x < \pi)
+\end{equation}
+
+\ref{eq:exemplo1SF} nos dá
+\begin{equation}
+    \label{eq:1310}
+    \sum\limits_{n=0}^{\infty}(-1)^{n+1}\dfrac{cos(nx)}{n^2} = \dfrac{\pi^2 - 3x^2}{12}\text{ }(-\pi \leq x \leq \pi)
+\end{equation}
+
+\ref{eq:exemplo4SF} nos dá
+\begin{equation}
+    \label{eq:1311}
+    \sum\limits_{n=0}^{\infty}\dfrac{cos([2n+1] x)}{(2n+1)^2} = \dfrac{\pi^2 - 2\pi x}{8}\text{ }(0 \leq x \leq \pi)
+\end{equation}
+
+
+Além disso, subtraindo \ref{eq:1311} de \ref{eq:137}, obtemos
+\begin{equation}
+    \label{eq:1313}
+    \sum\limits_{n=0}^{\infty}\dfrac{sen(nx)}{2n} = \dfrac{\pi - 2x}{4}\text{ }(0 < x < \pi)
+\end{equation}
+e subtraindo \ref{eq:exemplo2SF} de \ref{eq:138}, temos
+\begin{equation}
+    \label{eq:1314}
+    \sum\limits_{n=0}^{\infty}\dfrac{cos(2nx)}{4n^2} = \dfrac{6x^2 - 6\pi x + \pi^2}{24}\text{ }(0 \leq x \leq \pi)
+\end{equation}
+
+Estas fórmulas também nos permitem calcular a soma de algumas séries numéricas. 
+Por exemplo, se setarmos $x = 0$, \ref{eq:138} e \ref{eq:1310} se transformam 
+em
+\begin{equation}
+\notag
+    \dfrac{\pi^2}{6} = 1 + \dfrac{1}{2^2} + \dfrac{1}{3^2} + \dfrac{1}{4^2} + \ldots, \dfrac{\pi^2}{12} = 1 - \dfrac{1}{2^2} - \dfrac{1}{3^2} - \dfrac{1}{4^2} - \ldots    
+\end{equation}
+enquanto se setarmos $x = \dfrac{\pi}{2}$, \ref{eq:1311} se transforma em
+\begin{equation}
+\notag
+    \dfrac{\pi}{4} = 1 - \dfrac{1}{3} + \dfrac{1}{5} - \dfrac{1}{7} + \ldots
+\end{equation}
