@@ -1,0 +1,104 @@
+\chapter{Funções de período 2l}
+
+Caso seja necessário expandir uma função $f(x)$ de período $2l$ em uma série de Fourier,
+setamos $x = lt/\pi$, e portanto obtendo a função $\phi(t) = f(lt/\pi)$ de período $2\pi$
+(Cap. 4). Para $\phi(t)$ podemos formar a série de Fourier
+
+\begin{equation}
+    \label{eq:151}
+     \phi(t) ~ \dfrac{a_0}{2} + \sum\limits_{n=1}^{\infty}(a_n cos(nt) + b_n sen(nt))
+\end{equation}
+onde
+\begin{equation}
+\notag
+    \begin{split}
+        a_n &= \dfrac{1}{l}\int_{-l}^{l}\phi(t)cos(nt)dx = \dfrac{1}{l}\int_{-l}^{l}f\left(\dfrac{lt}{\pi}\right)cos(nt)dx, (n = 0, 1, 2, \ldots)\\
+        b_n &= \dfrac{1}{l}\int_{-l}^{l}\phi(t)sen(nt)dx = \dfrac{1}{l}\int_{-l}^{l}f\left(\dfrac{lt}{\pi}\right)sen(nt)dx, (n = 1, 2, \ldots)
+    \end{split}
+\end{equation}
+
+Retornando ao valor original da variável $x$ setando $t = \pi x/l$, temos
+
+\begin{equation}
+\label{eq:152}
+    \phi(t) ~ \dfrac{a_0}{2} + \sum\limits_{n=1}^{\infty}\left(a_n cos\left(\dfrac{\pi nx}{l}\right) + b_n sen\left(\dfrac{\pi nx}{l}\right)\right)
+\end{equation}
+onde 
+\begin{equation}
+\label{eq:153}
+    \begin{split}
+        a_n &= \dfrac{1}{l}\int_{-l}^{l}f(x)cos\left(\dfrac{\pi nx}{l}\right)dx, (n = 0, 1, 2, \ldots)\\
+        b_n &= \dfrac{1}{l}\int_{-l}^{l}f(x)sen\left(\dfrac{\pi nx}{l}\right)dx, (n = 1, 2, \ldots)
+    \end{split}
+\end{equation}
+
+Os coeficientes \ref{eq:153} ainda são chamados de coeficientes de Fourier de $f(x)$, e a série 
+\ref{eq:152} continua sendo a série de Fourier de $f(x)$. Se a igualdade permanece em \ref{eq:151},
+então também serve para \ref{eq:152}, o inverso é verdadeiro também.
+
+Seria possível construir toda a teoria que vimos até aqui nesse formato diretamente, começando
+de um sistema trigonométrico na forma 
+
+\begin{equation}
+\label{eq:154}
+    1, cos\left(\dfrac{\pi x}{l}\right), sen\left(\dfrac{\pi x}{l}\right), \ldots, cos\left(\dfrac{\pi nx}{l}\right), sen\left(\dfrac{\pi nx}{l}\right), \ldots
+\end{equation} 
+
+como fizemos em \ref{eq:51}. O sistema \ref{eq:154} consiste de funções com um período comum
+de $2l$, e é facilmente verificado que essas funções são ortogonais em todo intervalo $2l$.
+As considerações dos Cap. 6, 7, 10, 12 e 14 podem ser adaptadas para o sistema \ref{eq:154},
+e o resultado é uma formulação análoga, trocando apenas $\pi$ por $l$.
+
+Particularmente, ao invés de uma função $f(x)$ de período $2l$, podemos considerar a 
+função definida somente no intervalo $[-l, l]$ (ou qualquer outro intervalo de tamanho $2l$).
+
+A série de Fourier de tal função é identica à sua extensão periódica em todo o eixo-x. O
+critério de convergência do Cap. 10 continua "valendo", se substituirmos o período $2\pi$ por
+$2l$.
+
+Se $f(x)$ é par, as fórmulas \ref{eq:153} ficam
+\begin{equation}
+\label{eq:155}
+    \begin{split}
+        a_n &= \dfrac{2}{l}\int_{0}^{l}f(x)cos\left(\dfrac{\pi nx}{l}\right)dx (n = 0, 1, 2, \ldots)\\
+        b_n &= 0
+    \end{split}
+\end{equation}
+enquanto se $f(x)$ é ímpar, ficam
+\begin{equation}
+\label{eq:156}
+    \begin{split}
+        a_n &= 0\\
+        b_n &= \dfrac{2}{l}\int_{0}^{l}f(x)sen\left(\dfrac{\pi nx}{l}\right)dx (n = 1, 2, \ldots)
+    \end{split}
+\end{equation}
+
+Como no Cap. 12, podemos usar este fato para expandir a função $f(x)$ definida somente no
+intervalo $[0, l]$ em série de cossenos ou série de senos (fazendo a extensão ímpar ou par
+da função no intervalo $[-l, 0]$).\\
+
+A forma complexa da série \ref{eq:152} fica assim
+\begin{equation}
+    \notag
+    f(x) ~ \sum\limits_{n=-\infty}^{\infty}c_n e^{i\pi nx/l}
+\end{equation}
+onde 
+\begin{equation}
+\notag
+    c_n = \dfrac{1}{2l}\int_{-l}^{l}f(x)e^{-i\pi nx/l}dx\text{, para }n = 0, \pm 1, \pm 2, \ldots
+\end{equation} 
+ou
+\begin{equation}
+    \begin{split}
+        \dfrac{1}{2\pi}\int_{-\pi}^{\pi}f(x)e^{-inx}dx &= \dfrac{1}{2\pi}\left[\int_{-\pi}^{\pi}f(x)cos(nx)dx - i\int_{-\pi}^{\pi}f(x)e^sen(nx)dx\right]\\
+        &= \dfrac{1}{2}(a_n - ib_n) = c_n
+    \end{split}
+\end{equation}
+para os índices positivos, e 
+\begin{equation}
+    \begin{split}
+        \dfrac{1}{2\pi}\int_{-\pi}^{\pi}f(x)e^{-inx}dx &= \dfrac{1}{2\pi}\left[\int_{-\pi}^{\pi}f(x)cos(nx)dx + i\int_{-\pi}^{\pi}f(x)e^sen(nx)dx\right]\\
+        &= \dfrac{1}{2}(a_n + ib_n) = c_{-n}
+    \end{split}
+\end{equation}
+para índices negativos.
