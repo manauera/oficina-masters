@@ -141,7 +141,7 @@ Uma vez que $|x| = x$ para $x \geq 0$, temos
     \end{split}
 \end{equation}
 
-Com os coeficientes, a série de Fourier da função $f(x) = |x|$ é
+Assim temos os coeficientes da expansão de Fourier e usando a fórmula \ref{eq:61}, temos
 \begin{equation}
     |x| = \dfrac{\pi}{2} - \dfrac{2}{\pi}\sum\limits_{n=1}^{\infty} \dfrac{[(-1)^n - 1]cos(nx)}{n^2}
 \end{equation}
@@ -199,7 +199,193 @@ Como $|sen(x)| = sen(x)$ para $0 \leq x \leq \pi$, então
     \end{split} 
 \end{equation}
 
-Assim, como $a_1 = 0$ temos a série de Fourier correspondente à função $f(x)$
+Assim temos os coeficientes da expansão de Fourier e usando a fórmula \ref{eq:61}, temos
 \begin{equation}
     |sen(x)| = \dfrac{2}{\pi} - \dfrac{4}{\pi}\sum\limits_{n=2}^{\infty}\dfrac{(-1)^n + 1)cos(nx)}{n^2 - 1}
 \end{equation}
+
+\section*{Exemplo 4}
+\textit{Expandir }$f(x) = x$\textit{, para }$ -\pi < x < \pi$\textit{ em uma série de Fourier.}\\
+
+A função $f(x)$ é um função \textit{ímpar}; A Figura \ref{fig:exemplo4} representa a extensão 
+periódica em todo eixo-x de $f(x)$. A função extendida é semi-suave e descontínua nos pontos 
+$x = (2k + 1)\pi$, para $x = 0, \pm 1, \pm 2,\ldots$. O teste do Cap. 10 é aplicável, e a série 
+de Fourier de $f(x)$ converge para 0 nos pontos de descontinuidade.
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-pi,
+        ymin=-4,
+        ymax=4,
+        ytick style={draw=none},
+        yticklabels={},
+        xtick={
+            -3.14159,
+            3.14159,
+            9.42478
+        },
+        xticklabels={
+            $-\pi$,
+            $\pi$, $3\pi$
+        }]
+        \addplot[name path=A, mark=none, thick, domain=-pi:pi] {x};
+        \addplot[name path=B, mark=none, thick, domain=pi:3*pi] {x-2*pi};
+        \addplot[name path=C, mark=none, thick, domain=3*pi:5*pi] {x-4*pi};
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(-pi,-pi) (-pi,pi) } ;
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(pi,-pi) (pi,pi) } ;
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(3*pi,-pi) (3*pi,pi) };
+    \end{axis}
+    \end{tikzpicture} 
+
+    \caption{A função $f(x) = x$ expandida para todo eixo-x}
+    \label{fig:exemplo4}
+\end{figure}
+
+Como $f(x)$ é ímpar, temos
+\begin{equation}
+    \notag
+    \label{eq:exemplo4}
+    \begin{split}
+        a_n &= 0\\
+        \text{e então}&\\
+        b_n &= \dfrac{2}{\pi}\int_{0}^{\pi}x sen(nx)dx\\
+        &= \dfrac{2}{\pi}\left[x \dfrac{cos(nx)}{n}\right]_{x=0}^{x=\pi} + \dfrac{2}{\pi}\int_{0}^{\pi}x \dfrac{cos(nx)}{n}dx\\
+        &= \dfrac{2}{\pi n} \left(\pi cos(n\pi)\right) + \dfrac{2}{\pi n}\left[-\dfrac{sen(nx)}{n^2}\right]_{x=0}^{x=\pi}\\
+        &= \dfrac{2}{n} cos(n\pi) = \dfrac{2}{n} (-1)^{n+1}
+    \end{split}
+\end{equation}
+
+Assim temos os coeficientes da expansão de Fourier e usando a fórmula \ref{eq:61}, temos
+\begin{equation}
+    x = 2\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n + 1})sen(nx)}{n}
+\end{equation}
+
+\section*{Exemplo 5}
+\textit{Expandir }$f(x) = 1$\textit{, para }$0 < x < \pi$\textit{ em série de senos.}\\
+
+Fazendo a extensão ímpar de $f(x)$ no intervalo $[-\pi, 0]$ produz uma descontinuidade em 
+$x = 0$. Figura \ref{fig:exemplo5} representa a extensão ímpar de $f(x)$ ao longo do eixo-x.
+O critério de convergência do Cap. 10 é aplicável para essa função extendida. Portanto,
+sua série de Fourier para $f(x) = 1$ para $0 < x < \pi$. Fora desse intervalo $0 < x < \pi$,
+converge para a função em \ref{fig:exemplo5}, com a soma da série sendo igual a zero nos pontos
+$x = kx$ para $x = 0, \pm 1, \pm 2, \ldots$.
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-pi,
+        ymin=-4,
+        ymax=4,
+        ytick style={draw=none},
+        yticklabels={},
+        xtick={
+            -3.14159,
+            3.14159,
+            9.42478
+        },
+        xticklabels={
+            $-\pi$,
+            $\pi$, $3\pi$
+        }]
+        \addplot[name path=A, mark=none, thick, domain=-pi:0] {-1};
+        \addplot[name path=B, mark=none, thick, domain=0:pi] {1};
+        \addplot[name path=C, mark=none, thick, domain=pi:2*pi] {-1};
+        \addplot[name path=D, mark=none, thick, domain=2*pi:3*pi] {1};
+        \addplot[name path=E, mark=none, thick, domain=3*pi:4*pi] {-1};
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(-pi,-1) (-pi,1) } ;
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(pi,-1) (pi,1) } ;
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(2*pi,-1) (2*pi,1) };
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(3*pi,-1) (3*pi,1) };
+    \end{axis}
+    \end{tikzpicture} 
+
+    \caption{A função $f(x) = 1$ definida no intervalo $0 < x < \pi$ expandida para todo eixo-x}
+    \label{fig:exemplo5}
+\end{figure}
+
+\begin{equation}
+    \notag
+    \label{eq:exemplo5}
+    \begin{split}
+        a_n &= 0\\
+        \text{e então}&\\
+        b_n &= \dfrac{2}{\pi}\int_{0}^{\pi}sen(nx)dx\\
+        &= \dfrac{2}{\pi}\left[-\dfrac{cos(nx)}{n}\right]_{x=0}^{x=\pi}\\
+        &= \dfrac{2}{\pi n} [1 - (-1)^n]
+    \end{split}
+\end{equation}
+
+Assim temos os coeficientes da expansão de Fourier e usando a fórmula \ref{eq:61}, temos
+\begin{equation}
+    1 = \dfrac{2}{\pi}\sum\limits_{n=1}^{\infty}\dfrac{[1 - (-1)^n]}{n}
+\end{equation}
+para o intervalo $0 < x < \pi$.
+
+\section*{Exemplo 6}
+
+\textit{Expandir }$f(x) = x$\textit{, para }$0 < x < 2\pi$\textit{ em série de Fourier.}\\
+
+Este exemplo é a mesma função do exemplo 4, porém o intervalo é diferente e sua expansão
+periódica é representada pela Figura \ref{fig:exemplo6}. O critério de convergência do Cap. 
+10 é aplicável. Nos pontos de descontinuidade, a série de Fourier converge para a média aritimética 
+do limites à esquerda e à direita, i.e., para $\pi$, neste caso, a função não é par nem ímpar.
+
+\begin{figure}[H]
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-1,
+        xmax=25,
+        ymin=-4,
+        ymax=7,
+        ytick style={draw=none},
+        yticklabels={},
+        xtick={
+            6.28318,
+            12.56638,
+            18.84954
+        },
+        xticklabels={
+            $2\pi$, 
+            $4\pi$, $6\pi$
+        }]
+        \addplot[name path=A, mark=none, thick, domain=0:2*pi] {x};
+        \addplot[name path=B, mark=none, thick, domain=2*pi:4*pi] {x-2*pi};
+        \addplot[name path=C, mark=none, thick, domain=4*pi:6*pi] {x-4*pi};
+        \addplot[name path=D, mark=none, thick, domain=6*pi:8*pi] {x-6*pi};
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(2*pi,0) (2*pi,2*pi) } ;
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(4*pi,0) (4*pi,2*pi) } ;
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(6*pi,0) (6*pi,2*pi) } ;
+        \addplot [name path=border,
+                color=gray, thick, dashed]
+                coordinates {(8*pi,0) (8*pi,2*pi) } ;
+    \end{axis}
+    \end{tikzpicture} 
+
+    \caption{A função $f(x) = x$ expandida para todo eixo-x}
+    \label{fig:exemplo6}
+\end{figure}
+
