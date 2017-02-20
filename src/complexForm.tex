@@ -1,0 +1,95 @@
+\chapter{A forma complexa da série de Fourier}
+
+Seja a função $f(x)$ integrável no intervalo $[-\pi, \pi]$, e sua série de Fourier
+é como segue
+
+\begin{equation}
+\label{eq:141}
+    f(x) ~ \dfrac{a_0}{2} + \sum\limits_{n=1}^{\infty}(a_n cos(nx) + b_n sen(nx)),
+\end{equation}
+\begin{equation}
+    \label{eq:142}
+    \begin{split}
+        a_n &= \dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)cos(nx)dx\text{, para }n = 0, 1, 2, \ldots\\
+        b_n &= \dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)sen(nx)dx\text{, para }n = 1, 2, \ldots
+    \end{split}
+\end{equation}
+
+Usando a fórmula de Euler relacionando função trigonométrica e exponencial, temos:
+\begin{equation}
+    \notag
+    e^{i\phi} = cos(\phi) + i sen(\phi)
+\end{equation}
+
+E uma consequencia imadiata dessa fórmula é 
+\begin{equation}
+    \notag
+    cos(\phi) = \dfrac{e^{i\phi} + e^{-i\phi}}{2}, sen(nx) = \dfrac{e^{i\phi} - e^{-i\phi}}{2i}
+\end{equation}
+
+Portanto, podemos escrever 
+\begin{equation}
+    \notag
+    \begin{split}
+        cos(nx) &= \dfrac{e^{inx} + e^{-inx}}{2}\\
+        sen(nx) &= i\dfrac{e^{inx} + e^{-inx}}{2}
+    \end{split}
+\end{equation}
+
+Substituindo na expressão \ref{eq:141}, ficamos como
+\begin{equation}
+\label{eq:143}
+    f(x) ~ \dfrac{a_0}{2} + \sum\limits_{n=1}^{\infty}(a_n\dfrac{e^{inx} + e^{-inx}}{2} + b_n i\dfrac{e^{inx} + e^{-inx}}{2})
+\end{equation}
+
+Se definirmos
+\begin{equation}
+    \label{eq:144}
+    c_0 = \dfrac{a_0}{2}, c_n = \dfrac{a_n - ib_n}{2}, c_{-n}=\dfrac{a_n + ib_n}{2}\text{, para }(n = 1, 2, \ldots)
+\end{equation}
+então a \textit{m-ésima} soma parcial da série \ref{eq:143}, e consequentemente a série \ref{eq:141}
+pode ser reescrito da seguinte forma: 
+\begin{equation}
+\label{eq:145}
+    s_m(x) = c_0 \sum\limits_{n=1}^{m}(c_n e^{inx} + c_{-n} e^{-inx}) = \sum\limits_{n=-m}^{m}c_n e^{inx}
+\end{equation}
+
+E com isso, podemos definir a forma complexa da série de Fourier
+
+\begin{definicao}
+    A série de Fourier na forma complexa é dada pela fórmula 
+    \begin{equation}
+        \label{eq:146}
+        f(x) ~ \sum\limits_{n=-\infty}^{\infty}c_n e^{inx}
+    \end{equation}
+\end{definicao}
+
+A convergência da série \ref{eq:146} deve ser entendida como um meio de existência 
+do limite como $m \rightarrow \infty$ das somas \textit{simétricas} \ref{eq:145}.
+
+Os coeficientes $c_n$ dados por \ref{eq:144} são chamados de \textit{coeficientes
+complexos de Fourier} da função $f(x)$. Eles satisfazem as relações 
+\begin{equation}
+\label{eq:147}
+    c_n = \dfrac{1}{2\pi}\int_{-\pi}^{\pi}f(x)e^{-inx}dx\text{, para }n = 0, \pm 1, \pm 2, \ldots
+\end{equation} 
+
+Na verdade, podemos reformular a partir da fórmula de Euler
+\begin{equation}
+    \begin{split}
+        \dfrac{1}{2\pi}\int_{-\pi}^{\pi}f(x)e^{-inx}dx &= \dfrac{1}{2\pi}\left[\int_{-\pi}^{\pi}f(x)cos(nx)dx - i\int_{-\pi}^{\pi}f(x)e^sen(nx)dx\right]\\
+        &= \dfrac{1}{2}(a_n - ib_n) = c_n
+    \end{split}
+\end{equation}
+para os índices positivos, e 
+\begin{equation}
+    \begin{split}
+        \dfrac{1}{2\pi}\int_{-\pi}^{\pi}f(x)e^{-inx}dx &= \dfrac{1}{2\pi}\left[\int_{-\pi}^{\pi}f(x)cos(nx)dx + i\int_{-\pi}^{\pi}f(x)e^sen(nx)dx\right]\\
+        &= \dfrac{1}{2}(a_n + ib_n) = c_{-n}
+    \end{split}
+\end{equation}
+para índices negativos.
+
+Pode ser útil ter em mente que se $f(x)$ é real, então os coeficientes $c_n$ e $c_{-n}$ são 
+\textit{\textbf{conjugados}} complexos. Isso é uma consequência imediata de \ref{eq:144}.
+
