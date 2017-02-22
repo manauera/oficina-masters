@@ -12,8 +12,8 @@ para qualquer $T \in \mathbb{R}$.
 \end{definicao}
 Essa constante T é chamada de período da função $f(x)$. As funções periódicas 
 mais comuns são $\sin{x}$, $\cos{x}$, $\tan{x}$, etc. Funções periódicas surgem
-em muitas aplicações matemáticas e em problemas de física e engenharia. 
-\\
+em muitas aplicações matemáticas e em problemas de física e engenharia.\\
+
 Se plotarmos o gráfico da função $y=f(x)$ em qualquer intervalo fechado 
 \mbox{$a \leq x \leq a + T$}, é possível obter o gráfico de $f(x)$ através da 
 repitição periódica da porção do gráfico correspondente a \mbox{$a \leq x \leq a + T$}.
@@ -37,10 +37,10 @@ Na figura ~\ref{fig:periodExp}, temos uma função periódica de período $T=2\p
 
     \addplot [name path=border,
             color=gray, thick, dashed]
-            coordinates {(1,0) (1,5) } ;
+            coordinates {(1,0) (1,1.35) } ;
     \addplot [name path=border,
             color=gray, thick, dashed]
-            coordinates {(1+2*3.14159,0) (1+2*3.14159,5) };
+            coordinates {(1+2*3.14159,0) (1+2*3.14159,1.35) };
     \end{axis}  
     \end{tikzpicture} 
     \caption{Observe que $f(a) = f(a + 2\pi)$}
@@ -50,6 +50,7 @@ Na figura ~\ref{fig:periodExp}, temos uma função periódica de período $T=2\p
 Se $T$ é um período da função periódica $f(x)$, então seus múltiplos $2T$, $3T$, $4T$, etc 
 também são períodos da função $f(x)$. Isso é verificado facilmente ao inspecionar 
 os gráficos de uma função periódica, ou pela série de igualdades:\\
+
 \begin{equation}
 \label{prop2}
     f(x) = f(x + T) = f(x + 2T) = f(x + 4T) = ...
@@ -134,7 +135,7 @@ cada valor de x. Então, teremos o seguinte:
     \label{sen2x}
     \end{axis}
     \end{tikzpicture}
-    \caption{Somando duas funções de mesmo período}
+    \caption{Resultado da soma entre a função $f(x)$ e $g(x)$, uma função $h(x)$ com período $T = 2\pi$}
     \label{fig:addExp}
 \end{figure}
 
@@ -171,7 +172,7 @@ os valores $f(x)$ por $g(x)$, para todo x. Ficamos com seguinte:
     \addplot [mark=none, thick] {sin(deg(x)) * sin(deg(2*x))};
     \end{axis}
     \end{tikzpicture}
-    \caption{Multiplicando funções de mesmo período}
+    \caption{Resultado de uma multiplicação entre a função $f(x)$ e $g(x)$, uma função $h(x)$ com período $T = 2\pi$}
     \label{fig:multExp}
 \end{figure}
 
@@ -182,33 +183,21 @@ período.\\
 
 \begin{definicao}
     Seja $f(x)$ e $g(x)$ duas funções periódicas com período em comum $T$, a soma, subtração,
-    multiplicação e divisão das duas funções resulta em uma função periódica de 
-    mesmo período mínimo é o maior período entre $f(x)$ e $g(x)$.
+    multiplicação e divisão das duas funções resulta em uma função periódica de cujo
+    período mínimo é o maior período entre $f(x)$ e $g(x)$.
 \end{definicao}
 
-Mais adiante, temos a seguinte propriedade de qualquer função periódica $f(x)$
-com período $T$:\\
-\begin{definicao}
-Se f(x) é integrável em um intervalo de tamanho T,
-então é integrável em qualquer outro intervalo de tamanho T, e o valor da integral
-é o mesmo\\
-\begin{equation}
-\label{int_prop1}
-    \int_a^{a+T} \! f(x) \, \mathrm{d}x = \int_b^{b+T} \! f(x) \, \mathrm{d}x.
-\end{equation}
-para qualquer a, b. \\
-\label{def:functPer}
-\end{definicao}
+Agora, outro aspecto importante de se notar é a integral de uma função periódica.
+Lembrando que podemos interpretar a integral de uma função como área, no caso 
+a área de uma função periódica é a área entre a curva definida pela função $f(x)$
+e o eixo-x, áreas acima do eixo-x são positivas, e abaixo do eixo-x são negativas.\\
 
-Essa propriedade é uma consequência imediata da interpretação da integral como
-área. Cada integral é igual a área incluida entre a curva $y=f(x)$, o eixo x e
-as ordenadas desenhadas nos limites do intervalo, onde áreas acima do eixo x
-são tidas como positivas, e áreas abaixo são tidas como negativas. No caso,
-as áreas representadas pelas duas integrais são a mesma por causa da propriedade 
-de \ref{def:functPer}. A figura \ref{fig:int_area}, a área em \textcolor{blue}{azul} e a
+Se observarmos a figura \ref{fig:int_area}, é possível concluir que ambas as 
+áreas são iguais.a área em \textcolor{blue}{azul} e a
 área em \textcolor{red}{vermelho} representam as áreas das integrais da função
 periódica $f(x)=sen(4x)+sen(2x)$ de período $T=\pi$ para intervalos de tamanho $\pi$. 
 \\
+
 \begin{figure}[H]
     \begin{tikzpicture}
     \begin{axis}[
@@ -238,6 +227,21 @@ periódica $f(x)=sen(4x)+sen(2x)$ de período $T=\pi$ para intervalos de tamanho
 \caption{Observe que ambas as áres são iguais}
 \label{fig:int_area}
 \end{figure}
+
+Disso temos a seguinte definição\\
+
+\begin{definicao}
+\label{def:functPer}
+    Se f(x) é integrável em um intervalo de tamanho T,
+    então é integrável em qualquer outro intervalo de tamanho T, e o valor da integral
+    é o mesmo\\
+    \begin{equation}
+    \label{int_prop1}
+        \int_a^{a+T} \! f(x) \, \mathrm{d}x = \int_b^{b+T} \! f(x) \, \mathrm{d}x.
+    \end{equation}
+    para qualquer a, b. \\
+\end{definicao}
+
 
 Daqui em diante, quando uma função $f(x)$ de período $T$ for integrável, então
 ela será integrável em qualquer intervalo de tamanho $T$.

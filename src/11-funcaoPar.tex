@@ -99,7 +99,10 @@ Sendo assim, podemos definir as seguintes propriedades \\
 \end{definicao}
 
 Para $(a)$, podemos verificar com as funções $f(x) = sen(x) *  sen(2x)$ e 
-$g(x) = cos(x) * cos(2x)$.
+$g(x) = cos(x) * cos(2x)$, representados pela Figura \ref{fig:multImpar}
+e pela Figura \ref{fig:multPar}, respectivamente. Para $(b)$, podemos 
+verificar com a função $h(x) = sen(x) * sen(2x\pi/2)$ representado na 
+Figura \ref{fig:multImparPar}
 
 
 \begin{figure}[H]
@@ -116,7 +119,6 @@ $g(x) = cos(x) * cos(2x)$.
         width=7cm,
         ticks=none]
     \addplot [mark=none, thick, domain=-(2*pi)+0.5:(2*pi)-0.5] {sin(deg(x)) * sin(deg(2*x))};
-    \label{senoide}
     \end{axis}
     \end{tikzpicture}
   \caption{Gráfico de $f(x)$}
@@ -135,7 +137,6 @@ $g(x) = cos(x) * cos(2x)$.
         width=7cm,
         ticks=none]
     \addplot [mark=none, thick, domain=-(2*pi)+0.5:(2*pi)-0.5] {sin(deg(x+pi/2)) * sin(deg(2*x+pi/2))};
-    \label{senoide}
     \end{axis}
     \end{tikzpicture}
   \caption{Gráfico de $g(x)$}
@@ -156,7 +157,6 @@ $g(x) = cos(x) * cos(2x)$.
         width=7cm,
         ticks=none]
     \addplot [mark=none, thick, domain=-(2*pi)+0.5:(2*pi)-0.5] {sin(deg(x)) * sin(deg(2*x+pi/2))};
-    \label{senoide}
     \end{axis}
     \end{tikzpicture}
   \caption{Gráfico de $h(x)$}

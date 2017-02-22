@@ -56,3 +56,60 @@
     \end{equation}
 
     onde os coeficientes $b_n$ são dados pela fórmula \ref{eq:122}.
+
+    Um problema que surge frequentemente é quando se expande em série de cossenos
+    ou série de senos uma função absolutamente integrável $f(x)$ definida no
+    intervalo $[0,\pi]$. 
+
+    Neste caso, para expandir em série de cossenos, basta fazer uma extensão $par$ 
+    do intervalo $[0,\pi]$ para o intervalo $[-\pi,0]$, como mostra a Figura 
+    \ref{fig:extPar}. Computacionalmente falando, não é necessário realizar a extensão
+    par [NÃO DIZ PORQUÊ].
+
+    Por outro lado, para expandir em série de senos, basta fazer uma extensão \textit{ímpar}
+    do intervalo $[0,\pi]$ para o intervalo $[-\pi,0]$, como mostra a Figura 
+    \ref{fig:extImpar}.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-4,
+        xmax=4,
+        ymin=-3,
+        ymax=3,
+        width=7cm,
+        ticks=none]
+    \addplot [mark=none, thick, domain=0:pi] {x^2/3 + 1};
+    \addplot [mark=none, dotted, domain=-pi:0] {x^2/3 + 1};
+    \label{senoide}
+    \end{axis}
+    \end{tikzpicture}
+  \caption{Extensão par em pontilhado}
+  \label{fig:extPar}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+
+    \begin{tikzpicture}
+    \begin{axis}[
+        Axis Style,
+        xmin=-4,
+        xmax=4,
+        ymin=-3,
+        ymax=3,
+        width=7cm,
+        ticks=none]
+    \addplot [mark=none, dotted, domain=-pi:0] {-x^2/3 - 1};
+    \addplot [mark=none, thick, domain=0:pi] {x^2/3 + 1};
+    \label{senoide}
+    \end{axis}
+    \end{tikzpicture}
+  \caption{Extensão ímpar em pontilhado}
+  \label{fig:extImpar}
+\end{subfigure}
+\label{fig:extParImpar}
+\end{figure}

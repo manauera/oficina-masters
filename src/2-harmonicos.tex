@@ -1,5 +1,5 @@
 \chapter{Harmonicos}
-
+\label{cap:harm}
 A função periódica mais simples é $y = \sin{x}$ e se imaginar constanstes $\mathcal{A} = 1$,
 $\omega = 1$ e $\varphi = 0$, podemos reescrever a mesma função da seguinte forma:
 \begin{equation}
@@ -16,14 +16,14 @@ inicial $\varphi$. Neste caso, o período dessa harmonica é $T = 2\pi / \omega$
 \end{equation}
 
 
-Agora, vamos definir daqui em diante $\omega > 0$, uma vez que, pela propriedade do seno, 
+Agora, vamos definir daqui em diante que a frequência seja $\omega > 0$, afinal, 
 \mbox{$sen(-a) = - sen (a)$} e examinar o comportamento da função \ref{eq:harm} para 
 diferentes valores de amplitude, frequência e fase inicial.
 \\
 \\
 
 
-Para $\mathcal{A}=1$, $\omega = 1$ e $\varphi = 0$, temos a curva senóide comum $y = sen x$\\
+Para $\mathcal{A}=1$, $\omega = 1$ e $\varphi = 0$, temos a curva senóide comum $y = sen(x)$\\
 \\
 
 \begin{figure}[H]
@@ -44,17 +44,13 @@ Para $\mathcal{A}=1$, $\omega = 1$ e $\varphi = 0$, temos a curva senóide comum
     \label{senoide}
     \end{axis}
     \end{tikzpicture}
-    \caption{Uma senóide comum}
+    \caption{Gráfico de uma senóide comum $f(x) = sen(x)$}
     \label{fig:senoide}
 \end{figure}
 
-Agora considere o seguinte harmonico $y = sen(wx)$ e definir $\omega x = z$, teremos
-$y = sen(z)$ cujo gráfico é a curva senóide normal. Portanto, o gráfico de 
-$y = sen(\omega x)$ é obtido deformando o gráfico da senóide comum. Por exemplo,
-se atribuirmos um $\omega > 1$, teremos uma \textit{compressão} do gráfico da
-senóide, então se tivermos $\mathcal{A} = 1$, $\omega = 3$ e $\varphi = 0$, o gráfico 
-desse harmonico seria como \ref{fig:compSen} abaixo.
-
+Agora, se considerarmos o harmonico $g(x) = sen(wx)$ e se atribuirmos um $\omega < 1$,
+teríamos um harmonico representado pela figura \ref{fig:compSen}. É possível observar
+que o gráfico é uma senóide comum que sofreu uma \textit{``compressão"}.
 \begin{figure}[H]
     \begin{tikzpicture}
     \begin{axis}[
@@ -72,17 +68,14 @@ desse harmonico seria como \ref{fig:compSen} abaixo.
     \addplot [mark=none, thick] {sin(deg(2*x))};
     \end{axis}
     \end{tikzpicture}
-    \caption{Compressão de uma senóide}
+    \caption{Gráfico da função $g(x) = sen\left(\dfrac{x}{2}\right)$}
     \label{fig:compSen}
 \end{figure}
 
-Ou seja, tivemos uma ``compressão" da curva senóide original ao setar $\omega = 2$,
-sendo assim sempre que tivermos um $\omega > 1$, teremos uma propocionalmente
-\textbf{menor}, neste caso $T = 2\pi / \omega = 2\pi / 3$.
+Por outro lado, se atribuirmos um $\omega > 1$, teríamos um harmonico 
+representado pela figura \ref{fig:expSen}. É possível observar
+que o gráfico é uma senóide comum que sofreu uma \textit{``expansão"}.
 
-Por outro lado, se atribuirmos um $\omega < 1$, teríamos uma \textit{expansão}
-do gráfico da senóide, então se para $\mathcal{A} = 1$, $\omega = 1/4$ e $\varphi = 0$,
-o gráfico seria:
 \begin{figure}[H]
     \begin{tikzpicture}
     \begin{axis}[
@@ -100,19 +93,16 @@ o gráfico seria:
     \addplot [mark=none, thick] {sin(deg((x/2))};
     \end{axis}
     \end{tikzpicture}
-    \caption{Expansão de uma senóide}
+    \caption{Gráfico da função $g(x) = sen\left(\dfrac{x}{2}\right)$}
     \label{fig:expSen}
 \end{figure}
 
-Assim, teremos uma "expansão" do gráfico da curva senóide original ao setar $\omega < 1$,
-e uma função com período \textbf{maior} com $\omega < 1$, neste caso 
-\mbox{$T = 2\pi/\omega = \dfrac{2\pi}{1/2} = 4\pi$}.
-
-Agora considere o harmonico $y = sen(\omega x + \varphi)$ e definir $\omega x + \varphi = \omega z$,
-para que $x = z - \varphi/\omega$. Como já sabemos o gráfico de $sen(\omega z)$, o gráfico 
-de $y = sen(\omega x + \varphi)$ é obtido deslocando o gráfico de $y = sen(\omega x)$ ao
-longo do eixo x por $-\varphi/\omega$. Então, dado $\mathcal{A} = 1$, $\omega = 1$ e $\varphi = 1/2$,
-teremos a curva que representa o $cos(x)$
+Agora considere o harmonico $h(x) = sen(\omega x + \varphi)$, o gráfico 
+de $h(x)$ é obtido deslocando o gráfico de $f(x) = sen(\omega x)$ ao
+longo do eixo x por $-\varphi/\omega$. Ou seja, dado $\omega = 1$ e 
+$\varphi = 1/2$, teremos a curva que representa o $cos(x)$ representado
+pela figura \ref{fig:deslocSen} que nada mais é que a senóide  comum 
+deslocada para esquerda.\\
 
 \begin{figure}[H]
     \begin{tikzpicture}
@@ -131,15 +121,13 @@ teremos a curva que representa o $cos(x)$
     \addplot [mark=none, thick] {sin(deg(x+(pi/2)))};
     \end{axis}
     \end{tikzpicture}
-    \caption{Deslocamento da senóide}
+    \caption{Gráfico da função $h(x) = seg\left(x + \dfrac{\pi}{2}\right)$}
     \label{fig:deslocSen}
 \end{figure}
 
-que nada mais é que a curva senóide deslocada para esquerda.\\
-\\
-Finalmente, o harmonico \senoide é obtido do harmonico $y = sen(\omega x + \varphi)$
-multiplicando todas as ordenadas por $\mathcal{A}$, então dado $\mathcal{A} = 2$, $\omega = 1$ e $\varphi = 0$,
-temos
+Finalmente, o gráfico \senoide é obtido multiplicando todas as ordenadas do gráfico de 
+$f(x) = sen(x)$ por $\mathcal{A}$, então dado $\mathcal{A} = 2$, $\omega = 1$ e 
+$\varphi = 0$, temos
 
 \begin{figure}[H]
     \begin{tikzpicture}
@@ -158,15 +146,18 @@ temos
             $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$,
             $\frac{5\pi}{2}$, $3\pi$, $\frac{7\pi}{2}$, $4\pi$
         }]
-    \addplot [mark=none, thick] {2*sin(deg(x+(pi/2)))};
+    \addplot [mark=none, thick] {2*sin(deg(x))};
     \end{axis}
     \end{tikzpicture}
-    \caption{Ampliação da senóide}
+    \caption{Gráfico da função $y = 2sen(x)$}
     \label{fig:ampSen}
 \end{figure}
 
-Portanto, podemos resumir tudo isso no seguinte:\\
+Todas funções anteriores são ditas \textit{harmonicas}, ou seja, é possível obtê-las
+a partir da senóide comum. Disso, tiramos a seguinte definição\\
+
 \begin{definicao}
+\label{def:harmonico}
     O gráfico de uma harmonica é obtido do gráfico da curva senóide 
     comum por uma compressão (ou expansão) uniforme ao longo dos eixos,
     mais um deslocamento ao longo do eixo x, e é dado pela equação \ref{eq:harm}
@@ -200,12 +191,16 @@ Para provar isso, basta resolver \ref{eq:ab_harm} para $a$ e $b$. Temos
 do qual $\varphi$ pode ser encontrado.\\
 
 Assim, podemos escrever os harmonicos na forma \ref{eq:harmSimpl}. Na Figura \ref{fig:ampSen},
-o harmonico pode ser escrito na forma\\
+teríamos
+
 \begin{equation}
-    y = \sqrt{2}\cos{3x}+\sin{3x}
-\end{equation} 
-e a notação dada pela equação \ref{eq:harmSimpl} será usada daqui em diante.\\
-\\
+    a = 2sen(0) = 0\text{, e } b = 2cos(0) = 2
+\end{equation}
+
+Usaremos a notação dada pela equação \ref{eq:harmSimpl} como a definição de um harmonico.\\
+
+
+\texttt{\textbf{Não sei se precisa daqui para baixo --------------------------------------}}
 Também será conviniente explicitar o período $T$ em \ref{eq:harmSimpl}. Se definirmos
 $T = 2l$, então, como $T = 2\pi/\omega$, temos
 \begin{equation}

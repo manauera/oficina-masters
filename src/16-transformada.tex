@@ -1,0 +1,51 @@
+\chapter{Transformada de Fourier}
+
+
+A transformada de Fourier é um conceito simples, porém que requer bastante
+atenção. Assim como qualquer outro conceito matemático, a quantidade de 
+detalhes nos faz pensar que é algo de outro planeta. Nesta sessão, quero
+simplificar um pouco o que é a transformada de Fourier para que seja
+mais compreensível e, ao final, explicar em termos formais assustadores.
+
+
+\section{Analogia}
+Até agora vimos extensivamente o que é expandir uma função $f(x)$ periódica
+ou apenas definida em um intervalo, em uma série de Fourier. 
+
+Agora, vamos deixar mais claro o que é a \textit{transformada de Fourier}.
+Para isso, vamo fazer uma analogia para se entender a idéia e assim,
+entraremos em mais detalhes formais.\\
+
+Então, vamos imaginar uma sopa. Isso mesmo, uma sopa.\\
+
+Esta sopa é composta de ingredientes. Para efeitos práticos, vamos supor
+que toda sopa tenha um número finito de ingredientes e que você saiba 
+quais são eles.\\
+
+Dito isso, vamos imaginar que um belo dia, você experimentou \textbf{A SOPA},
+tão saborosa e cremosa que fez você queer descobrir como foi feita.\\
+
+Pois bem, sabemos do que a sopa pode ser composta, mas não sabemos quanto de cada
+ingrediente aquela sopa possui.\\
+
+Então, se possuirmos um jeito de ``filtrar" os ingredientes e obter apenas 
+suas quantidades, conseguiríamos fazer a mesma sopa! \\
+
+Bom, para isso ser possível, vamos criar um \textit{filtro} para cada 
+ingrediente e despejar a sopa em cada um desses filtros. Se despejarmos 
+a sopa em cada um dos filtros, um cálculo simples de quanto tinha de massa 
+antes e depois, conseguimos obter quanto tinha no total de cada ingrediente.\\
+
+É assim que a transformada de Fourier funciona. Podemos dizer que a sopa
+está para um sinal, assim como os ingredientes estão para os harmonicos 
+(Definição \ref{def:harmonico}, do Cap. \ref{cap:harm}) que compõe o 
+sinal. Ou seja, a transformada de Fourier é, basicamente, \textit{transformar} 
+um sinal em diversos harmonicos. \\
+
+Vamos com calma, primeiro temos que associar com aquilo que já vimos.\\
+
+Se supormos que $f(x)$ é uma função que representa um sinal, podemos 
+afirmar que ele é composto de diversos harmonicos. Como já vimos antes,
+podemos calcular o coeficiente de cada harmonico separadamente, dado
+que a função satisfaça todos os requisitos (são ortogonais, etc NÃO ME 
+LEMBRO DE TODOS).
