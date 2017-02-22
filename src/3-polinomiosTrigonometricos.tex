@@ -3,34 +3,32 @@ Dado o período $T=2l$, considere os harmonicos\\
 \begin{equation}
     a_k\cos{\dfrac{\pi kx}{l}} + b_k\sin{\dfrac{\pi kx}{l}},\text{\hspace{5pt}para k = 1,2,3,...}
 \end{equation}
-\\
-Com frequencia $\omega_k = k\pi/l$ e períodos $T_k = \dfrac{2\pi}{\omega_k} = \dfrac{2l}{k}$. 
+com frequencia $\omega_k = k\pi/l$ e períodos $T_k = \dfrac{2\pi}{\omega_k} = \dfrac{2l}{k}$. 
 Uma vez que 
 \begin{equation}
 \notag
     T = 2l = kT_k
 \end{equation}  
-\\
+
 \textbf{o número $T=2l$ é simultaneamente o período de todos os harmonicos},
-pois um múltiplo de um período é também um período (Sec 1). Então, toda soma na 
-forma\\
+pois um múltiplo de um período é também um período (Cap. 1). Então, se considerarmos 
+a seguinte soma\\
 \begin{equation}
     s_n(n) = \mathcal{A} + \sum\limits_{k=1}^{n}(a_k\cos{\dfrac{k\pi x}{l} + b_k\sin{\dfrac{k\pi x}{l}}})
 \end{equation}
-\\
-é uma função de período $2l$, uma vez que é uma soma de funções de período 
+temos uma função de período $2l$, uma vez que é uma soma de funções de período 
 $2l$. Vale notar que $A$ é uma constante e não afeta a periodicidade da função,
 inclusive é possível considerar que uma constante é uma função periódica, onde 
 qualquer valor pode ser um período.\\
-\\
+
 Essa função $s_n(x)$ é chamada  de \textbf{polinômio trigonométrico de ordem n}(
 e período $2l$).\\
-\\
+
 Por mais que seja a soma de vários harmonicos, um polinômio trigonométrico pode 
-ser usado para representar uma função de natureza muito mais complexa que a 
+ser usado para representar uma função de natureza muito mais complexas que a 
 de um harmonico. E geralmente é o caso. Escolhendo as constantes corretamente,
-podemos formar funções com gráficos bem diferentes de um simples harmonico.
-\\
+podemos formar funções com gráficos bem diferentes de um simples harmonico.\\
+
 Na primeira Figura \ref{fig:periodExp}, o polínomio que representa aquele gráfico é\\
 \begin{equation}
     y = \sin{x} + \dfrac{1}{2}\sin{2x} + \dfrac{1}{4}\sin{3x}
@@ -51,28 +49,20 @@ Sendo assim, o gráfico de uma função periódica $f(x)$ pode ser obtido atrav�
 sobreposição de todos os harmonicos que o compõe, i.e., pode ser representado
 como uma soma de harmonicos simples.
 Então a pergunta que fica é:\\
-\textit{Qualquer função que tenha período 2l pode ser representado por uma soma de séries 
-trigonométricas?}\\
+\textit{Qualquer função que tenha período 2l pode ser representado por uma soma de senos 
+e cossenos?}\\
 \\
-A resposta é sim, e na realidade, é possível ser usado em grande quantidade de problemas!
-Diversos outros fenômenos podem ser ser representado por uma série trigonométrica.
-\\
-\\  
+A resposta é sim, e na realidade, é possível representar uma enorme gama de funções,
+inclusive funções descontínuas!\\
 
-\textbf{Se}
-\begin{equation}
-    f(x) = A + \sum\limits_{k=1}^{\infty}(a_k\cos{\dfrac{k\pi x}{l}} + b_k\sin{\dfrac{k\pi x}{l}})
-\label{eq:serieLonga}
-\end{equation}
-
-\textbf{Então}, podemos definir, por comodidade, que $\dfrac{\pi x}{l} = t$ ou que $x = \dfrac{tl}{\pi}$,
-assim teremos\\
+Por questões práticas, vamos considerar que se definirmos que $\dfrac{\pi x}{l} = t$
+ou que $x = \dfrac{tl}{\pi}$, assim teremos\\
 \begin{equation}
     g(t) = f(tl/\pi) = A + \sum\limits_{k=1}^{\infty}(a_k\cos{kt} + b_k\sin{kt})
 \label{eq:serieSimples}
 \end{equation}
-\\
-onde os harmonicos dessa série tenham período $2\pi$. 
+onde os harmonicos dessa série tenham período $2\pi$, assim a função fica visivelmente
+mais compreensível que de outra forma.\\
 
 É possível verificar que se a função $f(x)$ de período $2l$ possui a expansão 
 \ref{eq:serieLonga}, então a função $g(x)$ de período $2\pi$ possui a expansão 
